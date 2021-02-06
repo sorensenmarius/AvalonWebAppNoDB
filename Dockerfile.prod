@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN npm install
+RUN npm install --silent
 
 COPY . /app
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "build"]
