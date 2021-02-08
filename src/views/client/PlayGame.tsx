@@ -1,8 +1,7 @@
 import { HubConnection } from "@microsoft/signalr";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Game from "../../models/Game";
 import JoinGame from "./GameStateComponents/JoinGame"
-import { setupSocket } from '../../services/GameHubUtils';
 import GameStatus from '../../models/enums/GameStatus';
 import WaitingForPlayers from "./GameStateComponents/WaitingForPlayers";
 import AssassinTurn from "./GameStateComponents/AssassinTurn";

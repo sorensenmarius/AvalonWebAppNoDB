@@ -5,7 +5,6 @@ import Player from "../../../models/Player";
 import GameHubMethods from "../../../services/GameHubMethods";
 import { setupSocket } from "../../../services/GameHubUtils";
 import GameService from "../../../services/GameService";
-import http from "../../../services/HttpService";
 
 interface IJoinGameProps {
     setGame: (game: Game) => void,

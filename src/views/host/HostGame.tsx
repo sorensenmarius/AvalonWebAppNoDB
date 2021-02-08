@@ -6,7 +6,7 @@ import GameHubMethods from "../../services/GameHubMethods";
 import { setupSocket } from "../../services/GameHubUtils";
 import GameService from "../../services/GameService";
 
-const CreateGame = () => {
+const HostGame = () => {
     const [game, setGame] = useState<Game>();
     const [socket, setSocket] = useState<HubConnection>();
 
@@ -37,4 +37,4 @@ const CreateGame = () => {
     )
 }
 
-export default CreateGame;
+export default HostGame;
