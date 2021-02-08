@@ -2,19 +2,18 @@ import { HubConnection } from "@microsoft/signalr";
 import { useEffect, useState } from "react";
 import Game from "../../models/Game";
 import JoinGame from "./GameStateComponents/JoinGame"
-import { setupSocket } from '../../sockets/GameHubUtils';
+import { setupSocket } from '../../services/GameHubUtils';
 import GameStatus from '../../models/enums/GameStatus';
 import WaitingForPlayers from "./GameStateComponents/WaitingForPlayers";
 import AssassinTurn from "./GameStateComponents/AssassinTurn";
 import PlayRound from "./GameStateComponents/PlayRound";
-import Round from "../../models/Round";
 
 const PlayGame = () => {
     const [game, setGame] = useState<Game>();
     const [socket, setSocket] = useState<HubConnection>();
 
     useEffect(() => {
-        setSocket(setupSocket());
+        setSocket(setupSocket(setGame));
     }, [])
 
     if (!game)
