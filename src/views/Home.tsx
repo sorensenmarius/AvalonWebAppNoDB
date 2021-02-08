@@ -10,8 +10,8 @@ const Home = (props: IHomeProps) => {
     return(
         <React.Fragment>
             <h1>Velkommen bla bla bla</h1>
-            <button onClick={() => history.push("/CreateGame")}>Host</button>
-            <button onClick={() => history.push("/JoinGame")}>Join</button>
+            <button onClick={() => history.push("/HostGame")}>Host</button>
+            <button onClick={() => history.push("/PlayGame")}>Join</button>
         </React.Fragment>
     )
 }

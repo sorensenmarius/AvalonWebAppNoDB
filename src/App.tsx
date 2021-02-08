@@ -4,8 +4,8 @@ import { HubConnection } from '@microsoft/signalr';
 import { setupSocket } from './sockets/GameHubUtils';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './views/Home';
-import JoinGame from './views/client/JoinGame';
-import CreateGame from './views/host/CreateGame';
+import PlayGame from './views/client/PlayGame';
+import HostGame from './views/host/HostGame';
 
 
 const App = () => {
@@ -15,20 +15,14 @@ const App = () => {
     setGameHub(setupSocket());
   }, [])
 
-  const sendMessage = () => {
-    gameHub?.invoke("SendMessage", "This is a message")
-  }
-
-
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" component={Home} exact />
 
-        {/* HOST ROUTES */}
-        <Route path="/CreateGame" component={CreateGame} />
-        {/* CLIENT ROUTES */}
-        <Route path="/JoinGame" component={JoinGame} />
+        <Route path="/HostGame" component={HostGame} />
+
+        <Route path="/PlayGame" component={PlayGame} />
       </Switch>
     </BrowserRouter>
   );
