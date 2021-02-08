@@ -11,17 +11,18 @@ const CreateGame = () => {
     const [socket, setSocket] = useState<HubConnection>();
 
     useEffect(() => {
-        setSocket(setupSocket(setGame));
-
         createGame()
     }, [])
 
     const createGame = async () => {
+        setupSocket(setGame).then(newSocket => {
+            setSocket(newSocket)
+            newSocket.invoke(GameHubMethods.HostGame, game.id)
+        })
+
         let game: Game = await GameService.createGame();
 
         setGame(game)
-
-        await socket?.invoke(GameHubMethods.HostGame, game.id)
     }   
 
     return (
