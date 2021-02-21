@@ -11,7 +11,8 @@ interface Game {
     currentPlayer: Player,
     players: Player[],
     status: GameStatus,
-    rounds: Round[]
+    rounds: Round[],
+    currentRound: Round
 }
 
 export default Game;
