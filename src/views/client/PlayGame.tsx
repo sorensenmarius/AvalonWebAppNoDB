@@ -6,6 +6,7 @@ import GameStatus from '../../models/enums/GameStatus';
 import WaitingForPlayers from "./GameStateComponents/WaitingForPlayers";
 import AssassinTurn from "./GameStateComponents/AssassinTurn";
 import PlayRound from "./GameStateComponents/PlayRound";
+import GameEnded from "./GameStateComponents/GameEnded";
 import Player from "../../models/Player";
 
 const PlayGame = () => {
@@ -13,7 +14,7 @@ const PlayGame = () => {
     const [me, setMe] = useState<Player>();
     const [socket, setSocket] = useState<HubConnection>();
 
-    if (!game)
+    if (!game || !me || !socket)
         return <JoinGame 
             setGame={setGame} 
             setMe={setMe}
@@ -27,10 +28,10 @@ const PlayGame = () => {
         return <PlayRound />
     
     if (game.status === GameStatus.AssassinTurn)
-        return <AssassinTurn />
+        return <AssassinTurn game={game} me={me} socket={socket}/>
     
     if (game.status === GameStatus.Ended)
-        setGame(undefined)
+        return <GameEnded game={game} />
     
     return <></>
 }

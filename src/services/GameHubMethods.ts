@@ -1,6 +1,7 @@
 enum GameHubMethods {
     HostGame = "HostGame",
-    JoinGame = "JoinGame"
+    JoinGame = "JoinGame",
+    Assassinate = "Assassinate"
 }
 
 export default GameHubMethods;
