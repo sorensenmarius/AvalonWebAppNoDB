@@ -1,10 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-interface IHomeProps {}
-
-
-const Home = (props: IHomeProps) => {
+const Home = () => {
     const history  = useHistory();
 
     return(

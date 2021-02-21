@@ -1,5 +1,3 @@
-import Round from "../Round";
-
 enum RoundStatus {
     SelectingTeam,
     VotingForTeam,

@@ -24,7 +24,7 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
 
         setupSocket(setGame).then(newSocket => {
             setSocket(newSocket)
-            newSocket.invoke(GameHubMethods.JoinGame, game.id, me.id);
+            newSocket.invoke(GameHubMethods.JoinGame, game.id);
         })
     }
 

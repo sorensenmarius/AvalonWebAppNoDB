@@ -1,5 +1,4 @@
 enum GameHubListeners {
-    PlayerJoined = "PlayerJoined",
     GameUpdated = "GameUpdated"
 }
 
