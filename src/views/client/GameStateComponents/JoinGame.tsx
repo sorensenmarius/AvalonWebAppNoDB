@@ -12,8 +12,7 @@ interface IJoinGameProps {
     setSocket: (socket: HubConnection) => void
 }
 
-const JoinGame = (props: IJoinGameProps) => {
-    const {setGame, setMe, setSocket} = props;
+const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
     const [joinCode, setJoinCode] = useState<number>(-1);
     const [playerName, setPlayerName] = useState<string>('');
 

@@ -1,18 +1,12 @@
-import { HubConnection } from "@microsoft/signalr";
 import { useState } from "react";
 import Role from "../../../models/enums/Roles";
-import Game from "../../../models/Game";
+import IBasicProps from "../../../models/IBasicProps";
 import Player from "../../../models/Player";
 import GameHubMethods from "../../../services/GameHubMethods";
-import SelectPlayers from "../HelperComponents/SelectPlayers";
+import SelectPlayers from "../Helpers/SelectPlayers";
 
-interface IAssassinTurnProps {
-    game: Game,
-    me: Player,
-    socket: HubConnection
-}
 
-const AssassinTurn = ({game, me, socket} : IAssassinTurnProps) => {
+const AssassinTurn = ({game, me, socket} : IBasicProps) => {
     const [selected, setSelected] = useState<Player[]>([]);
 
     const submitAssassination = () => {
