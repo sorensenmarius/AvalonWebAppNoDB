@@ -9,14 +9,10 @@ interface ISelectPlayersProps {
 
 const SelectPlayers = ({num, players, selected, setSelected} : ISelectPlayersProps) => {
     const updateSelected = (player: Player) => {
-        const playerIndex = selected.findIndex(p => p.id === player.id);
-
-        if (playerIndex) {
-            setSelected(selected.splice(playerIndex, 1))
+        if (selected.some(p => p.id === player.id)) {
+            setSelected(selected.filter(p => p.id !== player.id))
         } else if (selected.length !== num) {
-            selected.push(player)
-
-            setSelected(selected)
+            setSelected([...selected, player])
         }
     }
 
@@ -24,7 +20,7 @@ const SelectPlayers = ({num, players, selected, setSelected} : ISelectPlayersPro
         <>
             Select {num} players:
             {players.map(p => (
-                <>
+                <div key={p.id}>
                     <input 
                         type='checkbox'
                         value={p.id}
@@ -32,7 +28,7 @@ const SelectPlayers = ({num, players, selected, setSelected} : ISelectPlayersPro
                         onChange={() => updateSelected(p)}
                     />
                     {p.name}
-                </>
+                </div>
             ))}
         </>
     )
