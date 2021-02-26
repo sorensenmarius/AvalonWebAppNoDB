@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import Game from "../../../../models/Game";
-import Player from "../../../../models/Player";
+import IBasicProps from "../../../../models/IBasicProps";
+import GameHubMethods from "../../../../services/GameHubMethods";
 
-interface IVoteProps {
-    game: Game
-    me: Player
+interface IVoteProps extends IBasicProps {
     expedition: boolean
 }
 
-const Vote = ({game, me, expedition}: IVoteProps) => {
+const Vote = ({game, me, expedition, socket}: IVoteProps) => {
     const [iAmVoting, setIAmVoting] = useState<boolean>(false)
+    const [haveVoted, setHaveVoted] = useState<boolean>(false)
 
     useEffect(() => {
         if (!expedition) {
@@ -20,10 +19,12 @@ const Vote = ({game, me, expedition}: IVoteProps) => {
     }, [game, expedition, me])
 
     const registerVote = (successVote: boolean) => {
-        // Register expedition or team votes :)))
+        const socketFunction = expedition ? GameHubMethods.SubmitExpeditionVote : GameHubMethods.SubmitTeamVote
+        setHaveVoted(true)
+        socket.invoke(socketFunction, game.id, successVote)
     }
 
-    if (iAmVoting) {
+    if (iAmVoting && !haveVoted) {
         return(
             <>
                 <h1>Vote for {expedition ? 'expedition' : 'team'}</h1>
@@ -40,6 +41,10 @@ const Vote = ({game, me, expedition}: IVoteProps) => {
             </>
         )
     }
+
+    return(
+        <h1>Waiting for votes</h1>
+    )
 }
 
 export default Vote;

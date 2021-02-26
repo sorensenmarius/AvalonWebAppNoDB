@@ -4,7 +4,9 @@ enum GameHubMethods {
     JoinGame = "JoinGame",
     Assassinate = "Assassinate",
     ChangeSelectedTeam = "ChangeSelectedTeam",
-    SubmitSelectedTeam = "SubmitSelectedTeam"
+    SubmitSelectedTeam = "SubmitSelectedTeam",
+    SubmitExpeditionVote = "SubmitExpeditionVote",
+    SubmitTeamVote = "SubmitTeamVote"
 }
 
 export default GameHubMethods;
