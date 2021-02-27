@@ -18,7 +18,7 @@ const PlayRound = ({game, me, socket} : IBasicProps) => {
         return <RevealTeamVotes game={game} me={me} socket={socket} />
 
     if (currentRoundStatus === RoundStatus.VotingForExpedition)
-        return <Vote game={game} me={me} socket={socket} expedition={false} />
+        return <Vote game={game} me={me} socket={socket} expedition={true} />
     
 
     
