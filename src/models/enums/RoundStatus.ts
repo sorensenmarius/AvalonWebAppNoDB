@@ -1,8 +1,8 @@
 enum RoundStatus {
     SelectingTeam,
     VotingForTeam,
+    RevealTeamVote,
     VotingForExpedition,
-    TeamApproved,
     MissionSuccess,
     MissionFailed,
     RoundEnded = -1
