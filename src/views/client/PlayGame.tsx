@@ -1,5 +1,5 @@
 import { HubConnection } from "@microsoft/signalr";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Game from "../../models/Game";
 import JoinGame from "./GameStateComponents/JoinGame"
 import GameStatus from '../../models/enums/GameStatus';
@@ -13,6 +13,15 @@ const PlayGame = () => {
     const [game, setGame] = useState<Game>();
     const [me, setMe] = useState<Player>();
     const [socket, setSocket] = useState<HubConnection>();
+
+    useEffect(() => {
+        if (me) {
+            const newMe = game?.players.find(p => p.id === me.id)
+
+            if (newMe)
+                setMe(newMe)
+        }
+    }, [me, game?.players])
 
     if (!game || !me || !socket)
         return <JoinGame 

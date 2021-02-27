@@ -1,7 +1,7 @@
 import RoundStatus from "../../../models/enums/RoundStatus";
 import IBasicProps from "../../../models/IBasicProps";
 import SelectingTeam from "./RoundStateComponents/SelectingTeam";
-import RevealVotes from "./RoundStateComponents/RevealTeamVotes";
+import RevealVotes from "./RoundStateComponents/RevealVotes";
 import Vote from "./RoundStateComponents/Vote";
 import GameHubMethods from "../../../services/GameHubMethods";
 

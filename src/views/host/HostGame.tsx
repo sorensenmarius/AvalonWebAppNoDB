@@ -2,7 +2,9 @@ import { HubConnection } from "@microsoft/signalr";
 import React, { useState } from "react";
 import GameStatus from "../../models/enums/GameStatus";
 import Game from "../../models/Game";
+import AssassinTurnHost from "./AssassinTurnHost";
 import CreateGame from "./CreateGame";
+import GameEnded from "./GameEnded";
 import HostRound from "./HostRound";
 
 const HostGame = () => {
@@ -14,6 +16,12 @@ const HostGame = () => {
     
     if (game.status === GameStatus.Playing)
         return <HostRound game={game} />
+    
+    if (game.status === GameStatus.AssassinTurn)
+        return <AssassinTurnHost game={game} />
+    
+    if (game.status === GameStatus.Ended)
+        return <GameEnded game={game} />
 
 
     // if (game.status === GameStatus.AssassinTurn)

@@ -36,8 +36,8 @@ const RevealTeamVotesHost = ({game}: IRevealTeamVotesHost) => {
 
     return(
         <>
-            <h1>Votes for Good: {goodTeamVotes}</h1>
-            <h1>Votes for Evil: {evilTeamVotes}</h1>
+            <h1>Accept team: {goodTeamVotes}</h1>
+            <h1>Refuse team: {evilTeamVotes}</h1>
         </>
     )
 }
