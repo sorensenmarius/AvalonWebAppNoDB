@@ -1,10 +1,11 @@
 import { HubConnection } from "@microsoft/signalr";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Game from "../../models/Game";
 import Player from "../../models/Player";
 import GameHubMethods from "../../services/GameHubMethods";
 import { setupSocket } from "../../services/GameHubUtils";
 import GameService from "../../services/GameService";
+import RoleSelector from "./RoleSelector";
 
 interface ICreateGame {
     game?: Game
@@ -14,6 +15,7 @@ interface ICreateGame {
 }
 
 const CreateGame = ({game, socket, setGame, setSocket}: ICreateGame) => {
+    const [roles, setRoles] = useState<number[]>([])
     useEffect(() => {
         if (!game || !socket)
             createGame()
@@ -32,7 +34,7 @@ const CreateGame = ({game, socket, setGame, setSocket}: ICreateGame) => {
     }
 
     const startGame = () => {
-        socket?.invoke(GameHubMethods.StartGame, game?.id)
+        socket?.invoke(GameHubMethods.StartGame, game?.id, roles)
     }
 
     return (
@@ -42,6 +44,7 @@ const CreateGame = ({game, socket, setGame, setSocket}: ICreateGame) => {
             {game?.players.map((p: Player) => (
                 <p>{p.name}</p>
             ))}
+            <RoleSelector game={game} roles={roles} setRoles={setRoles} />
             <button
                 onClick={startGame}
             >

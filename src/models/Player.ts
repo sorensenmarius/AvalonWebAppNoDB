@@ -7,7 +7,6 @@ interface Player {
     roleInfo: string,
     roleName: string,
     isEvil: boolean,
-    order: number
 }
 
 export default Player;
