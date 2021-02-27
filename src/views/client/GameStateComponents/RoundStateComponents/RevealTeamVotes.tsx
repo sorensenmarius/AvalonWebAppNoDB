@@ -1,9 +1,13 @@
 import IBasicProps from "../../../../models/IBasicProps";
 import GameHubMethods from "../../../../services/GameHubMethods";
 
-const RevealTeamVotes = ({game, me, socket}: IBasicProps) => {
+interface IRevealVotesProps extends IBasicProps {
+    gameHubMethod: GameHubMethods
+}
+
+const RevealVotes = ({game, me, socket, gameHubMethod}: IRevealVotesProps) => {
     const nextStep = () => {
-        socket.invoke(GameHubMethods.SkipRevealTeamVotes, game.id)
+        socket.invoke(gameHubMethod, game.id)
     }
 
     return(
@@ -20,4 +24,4 @@ const RevealTeamVotes = ({game, me, socket}: IBasicProps) => {
     )
 }
 
-export default RevealTeamVotes;
+export default RevealVotes;

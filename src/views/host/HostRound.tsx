@@ -1,6 +1,7 @@
 import React from "react";
 import RoundStatus from "../../models/enums/RoundStatus";
 import Game from "../../models/Game";
+import RevealExpeditionVote from "./RoundStateComponents/RevealExpeditionVote";
 import RevealTeamVotesHost from "./RoundStateComponents/RevealTeamVotesHost";
 import SelectingTeamHost from "./RoundStateComponents/SelectingTeamHost";
 import VotingForExpeditionHost from "./RoundStateComponents/VotingForExpeditionHost";
@@ -26,6 +27,9 @@ const HostRound = ({game}: IHostRound) => {
     if (currentRoundStatus === RoundStatus.VotingForExpedition)
         return <VotingForExpeditionHost game={game} />
     
+    if (currentRoundStatus === RoundStatus.RevealExpeditionVote)
+        return <RevealExpeditionVote game={game} />
+
     return(
         <h1>Not yet implemented - HostRound - {currentRoundStatus}</h1>
     )
