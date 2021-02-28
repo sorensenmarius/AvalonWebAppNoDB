@@ -4,9 +4,10 @@ interface IButton {
     onClick: () => void
     disabled?: boolean
     children?: React.ReactNode
+    className?: string
 }
 
-const GodButton = ({onClick, disabled = false, children}: IButton) => {
+const GodButton = ({onClick, disabled = false, children, className}: IButton) => {
 
     const clickButton = () => {
         if (!disabled)
@@ -15,7 +16,7 @@ const GodButton = ({onClick, disabled = false, children}: IButton) => {
 
     return(
         <div 
-            className='fantasy-button'
+            className={className ? 'fantasy-button ' + className : 'fantasy-button'}
             style={{
                 color: disabled ? 'darkred' : 'burlywood'
             }}
