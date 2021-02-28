@@ -18,7 +18,7 @@ const GodButton = ({onClick, disabled = false, children, className}: IButton) =>
         <div 
             className={className ? 'fantasy-button ' + className : 'fantasy-button'}
             style={{
-                color: disabled ? 'darkred' : 'burlywood'
+                color: disabled ? 'darkred' : 'lightgoldenrodyellow'
             }}
             onClick={clickButton}
         >
