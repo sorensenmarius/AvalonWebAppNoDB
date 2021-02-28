@@ -1,13 +1,13 @@
 import './Button.css'
 
-interface IButton {
+interface IButtonProps {
     onClick: () => void
     disabled?: boolean
     children?: React.ReactNode
     className?: string
 }
 
-const GodButton = ({onClick, disabled = false, children, className}: IButton) => {
+const GodButton = ({onClick, disabled = false, children, className}: IButtonProps) => {
 
     const clickButton = () => {
         if (!disabled)
