@@ -1,6 +1,6 @@
 import { HubConnection } from "@microsoft/signalr";
 import React, { useState } from "react";
-import Button from "../../../components/Button";
+import Button from "../../../components/Button/Button";
 import Game from "../../../models/Game";
 import Player from "../../../models/Player";
 import GameHubMethods from "../../../services/GameHubMethods";

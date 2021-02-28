@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../../components/Button";
+import Button from "../../../components/Button/Button";
 import Role from "../../../models/enums/Roles";
 import IBasicProps from "../../../models/IBasicProps";
 import Player from "../../../models/Player";

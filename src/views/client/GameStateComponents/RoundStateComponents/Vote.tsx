@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../../../components/Button";
+import Button from "../../../../components/Button/Button";
 import IBasicProps from "../../../../models/IBasicProps";
 import GameHubMethods from "../../../../services/GameHubMethods";
 

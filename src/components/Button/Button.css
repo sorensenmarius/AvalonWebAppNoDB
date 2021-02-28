@@ -16,7 +16,7 @@
 .fantasy-button,
 .fantasy-button:before,
 .fantasy-button:after {
-    background-image: url("http://i.imgur.com/YEVxQhI.png");
+    background-image: url("../../assets/images/fantasyButton.png");
 }
 
 .fantasy-button:before,
