@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Button from "../../../../components/Button";
 import IBasicProps from "../../../../models/IBasicProps";
 import GameHubMethods from "../../../../services/GameHubMethods";
 
@@ -28,16 +29,16 @@ const Vote = ({game, me, expedition, socket}: IVoteProps) => {
         return(
             <>
                 <h1>Vote for {expedition ? 'expedition' : 'team'}</h1>
-                <button
+                <Button
                     onClick={() => registerVote(true)}
                 >
                     {expedition ? 'Accept' : 'Success'}
-                </button>
-                <button
+                </Button>
+                <Button
                     onClick={() => registerVote(false)}
                 >
                     {expedition ? 'Reject' : 'Fail'}
-                </button>
+                </Button>
             </>
         )
     }

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Button from "../../../../components/Button";
 import IBasicProps from "../../../../models/IBasicProps";
 import Player from "../../../../models/Player";
 import GameHubMethods from "../../../../services/GameHubMethods";
@@ -29,12 +30,12 @@ const SelectingTeam = ({game, me, socket}: IBasicProps) => {
                     selected={selected}
                     setSelected={updateSelected}
                 />
-                <button
+                <Button
                     disabled={selected.length !== game.currentRound.requiredPlayers}
                     onClick={submitTeam}
                 >
                     Choose players
-                </button>
+                </Button>
             </>
         )
     }

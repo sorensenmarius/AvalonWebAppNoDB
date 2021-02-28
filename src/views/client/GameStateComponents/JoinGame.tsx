@@ -1,5 +1,6 @@
 import { HubConnection } from "@microsoft/signalr";
-import { useState } from "react";
+import React, { useState } from "react";
+import Button from "../../../components/Button";
 import Game from "../../../models/Game";
 import Player from "../../../models/Player";
 import GameHubMethods from "../../../services/GameHubMethods";
@@ -41,10 +42,10 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
                 placeholder="Name"
                 onChange={e => setPlayerName(e.target.value)}
             />
-            <button
+            <Button
                 disabled={!joinCode || !playerName}
                 onClick={joinGame}
-            >Join</button>
+            >Join</Button>
         </>
     )
 }

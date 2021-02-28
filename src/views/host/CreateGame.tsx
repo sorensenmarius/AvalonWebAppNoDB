@@ -1,5 +1,6 @@
 import { HubConnection } from "@microsoft/signalr";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Button from "../../components/Button";
 import Game from "../../models/Game";
 import Player from "../../models/Player";
 import GameHubMethods from "../../services/GameHubMethods";
@@ -45,11 +46,11 @@ const CreateGame = ({game, socket, setGame, setSocket}: ICreateGame) => {
                 <p>{p.name}</p>
             ))}
             <RoleSelector game={game} roles={roles} setRoles={setRoles} />
-            <button
+            <Button
                 onClick={startGame}
             >
                 Start
-            </button>
+            </Button>
         </>
     )
 }
