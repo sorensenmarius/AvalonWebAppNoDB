@@ -51,7 +51,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                     <div className="RightSide">
                         <h2>Join Code and players that have joined</h2>
                         <div className="JoinCode">
-                            <h1>{game?.joinCode ? "1203021" : "120301"}</h1>
+                            <h1>{game?.joinCode ? game?.joinCode : "Could not get join code"}</h1>
                         </div>
                         <div className="PlayerHolder">
                             {game?.players.map((p: Player) => (
