@@ -1,16 +1,27 @@
-import './Button.less'
+import './Button.css'
 
-interface IGodButton {
+interface IButton {
     onClick: () => void
-    isBlue?: boolean
+    disabled?: boolean
     children?: React.ReactNode
 }
 
-const GodButton = ({onClick, isBlue = true, children}: IGodButton) => {
+const GodButton = ({onClick, disabled = false, children}: IButton) => {
+
+    const clickButton = () => {
+        if (!disabled)
+            onClick()
+    }
+
     return(
-        <div className='fantasy-button'>
-            <span 
-                onClick={onClick}>
+        <div 
+            className='fantasy-button'
+            style={{
+                color: disabled ? 'darkred' : 'burlywood'
+            }}
+            onClick={clickButton}
+        >
+            <span>
                 {children}
             </span>
         </div>
