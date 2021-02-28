@@ -21,4 +21,5 @@
     transform: translateX(-50%);
     position: absolute;
     bottom: 10vw;
+    text-align: center;
 }
