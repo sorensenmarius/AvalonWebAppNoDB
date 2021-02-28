@@ -1,0 +1,41 @@
+.fantasy-button {
+    margin: 1em;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 54px;
+    text-align: center;
+    text-shadow: 0 0 8px #000;
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+    min-width: 200px;
+}
+
+.fantasy-button,
+.fantasy-button:before,
+.fantasy-button:after {
+    background-image: url("../../assets/images/fantasyButton.png");
+}
+
+.fantasy-button:before,
+.fantasy-button:after {
+    top: 0;
+    width: 51px;
+    height: 54px;
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: 2;
+}
+
+.fantasy-button:before {
+    left: -2px;
+    background-position: 0px -108px;
+}
+
+.fantasy-button:after {
+    right: -2px;
+    background-position: 0px -162px;
+}

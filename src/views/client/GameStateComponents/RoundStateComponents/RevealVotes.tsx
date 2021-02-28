@@ -1,3 +1,5 @@
+import React from "react";
+import Button from "../../../../components/Button/Button";
 import IBasicProps from "../../../../models/IBasicProps";
 import GameHubMethods from "../../../../services/GameHubMethods";
 
@@ -14,11 +16,11 @@ const RevealVotes = ({game, me, socket, gameHubMethod}: IRevealVotesProps) => {
         <>
             <h1>Waiting for result on screen :O</h1>
             {game.currentPlayer.id === me.id &&
-                <button
+                <Button
                     onClick={nextStep}    
                 >
                     Continue
-                </button>
+                </Button>
             }
         </>
     )

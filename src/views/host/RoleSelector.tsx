@@ -33,6 +33,7 @@ const RoleSelector = ({ game, roles, setRoles }: IRoleSelectorProps) => {
         }
     }
     const handleHover = (roleInfo: string, id: number) => {
+        console.log("testing")
         setShowContent(true)
         setText(roleInfo ? roleInfo : "")
     }
@@ -45,7 +46,11 @@ const RoleSelector = ({ game, roles, setRoles }: IRoleSelectorProps) => {
             <h2 className="heading">Click på rollene du ønsker å ha med i spillet</h2>
             <div className="RoleSelectorContainer">
                 {availableRoles.map(r => (
-                    <div className={roles.includes(r.id) ? "roleBoxChecked" : "roleBox"} onClick={() => handleClick(r.id)} onMouseOver={() => handleHover(r.roleInfo, r.id)} onMouseLeave={() => setShowContent(false)}>
+                    <div key={r.id}
+                        className={roles.includes(r.id) ? "roleBoxChecked" : "roleBox"}
+                        onClick={() => handleClick(r.id)}
+                        onMouseOver={() => handleHover(r.roleInfo, r.id)}
+                        onMouseLeave={() => setShowContent(false)}>
                         <img src={r.imageUrl} width="100%" height="100%" alt="" />
                         {Role[r.id]}
                     </div>

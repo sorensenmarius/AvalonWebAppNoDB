@@ -1,5 +1,6 @@
 import { HubConnection } from "@microsoft/signalr";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Button from "../../components/Button/Button";
 import Game from "../../models/Game";
 import Player from "../../models/Player";
 import GameHubMethods from "../../services/GameHubMethods";
@@ -39,9 +40,6 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
 
     return (
         <>
-            <div className="CreateGameHolder">
-
-            </div>
             <div className="GreyScaleBackground">
             </div>
             <div className="BlurCard">
@@ -56,54 +54,16 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                             <h1>{game?.joinCode ? "1203021" : "120301"}</h1>
                         </div>
                         <div className="PlayerHolder">
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            <div className="PlayerCard">
-                                <h4>SimonGame</h4>
-
-                            </div>
-                            {/* {game?.players.map((p: Player) => (
+                            {game?.players.map((p: Player) => (
                                 <div className="PlayerCard">
                                     <p>{p.name}</p>
                                 </div>
-                            ))} */}
+                            ))}
                         </div>
 
-                        <button onClick={startGame}>
+                        <Button onClick={startGame}>
                             Start
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>

@@ -1,15 +1,23 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import Button from "../components/Button/Button";
+import './Home.css'
 
 const Home = () => {
     const history  = useHistory();
 
     return(
-        <React.Fragment>
-            <h1>Velkommen bla bla bla</h1>
-            <button onClick={() => history.push("/HostGame")}>Host</button>
-            <button onClick={() => history.push("/PlayGame")}>Join</button>
-        </React.Fragment>
+        <div className='home-page-background'>
+            <img 
+                src="/images/Avalon.png" 
+                alt="Avalon" 
+                className='home-page-logo center'
+            />
+            <div className='home-page-buttons-div'>
+                <Button onClick={() => history.push("/HostGame")}>Host</Button>
+                <Button onClick={() => history.push("/PlayGame")}>Join</Button>
+            </div>
+        </div>
     )
 }
 

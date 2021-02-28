@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Button from "../../../components/Button/Button";
 import Role from "../../../models/enums/Roles";
 import IBasicProps from "../../../models/IBasicProps";
 import Player from "../../../models/Player";
@@ -22,12 +23,12 @@ const AssassinTurn = ({game, me, socket} : IBasicProps) => {
                     selected={selected}
                     setSelected={setSelected}
                 />
-                <button
+                <Button
                     disabled={selected.length === 0}
                     onClick={submitAssassination}
                 >
                     Assassinate {selected.length > 0 ? selected[0].name : ''}
-                </button>
+                </Button>
             </>
         )
     }

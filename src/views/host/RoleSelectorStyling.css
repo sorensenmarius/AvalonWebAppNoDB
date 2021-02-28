@@ -17,9 +17,9 @@
     padding: 2rem;
     
 }
-.
+
 .roleBox:hover{
-    border: solid 0.2rem rgb(240, 111, 111);
+    border: solid 0.2rem rgb(190, 190, 190);
     filter: brightness(150%);
 }
 .infoHolder{
