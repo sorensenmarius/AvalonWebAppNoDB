@@ -7,7 +7,7 @@ interface IButtonProps {
     className?: string
 }
 
-const GodButton = ({onClick, disabled = false, children, className}: IButtonProps) => {
+const Button = ({onClick, disabled = false, children, className}: IButtonProps) => {
 
     const clickButton = () => {
         if (!disabled)
@@ -29,4 +29,4 @@ const GodButton = ({onClick, disabled = false, children, className}: IButtonProp
     )
 }
 
-export default GodButton;
+export default Button;
