@@ -40,8 +40,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
 
     return (
         <>
-            <div className="GreyScaleBackground">
-            </div>
+            <div className="GreyScaleBackground"></div>
             <div className="BlurCard">
                 <div className="BlurCardBackground"></div>
                 <div className="ContentHolder">

@@ -44,10 +44,11 @@ const RoleSelector = ({ roles, setRoles }: IRoleSelectorProps) => {
             <div className="RoleSelectorContainer">
                 {availableRoles.map(r => (
                     <div key={r.id}
-                        className={`roleBox ${roles.includes(r.id) ? ' role-box-checked' : ''}` }
+                        className={`roleBox${roles.includes(r.id) ? ' role-box-checked' : ''}` }
                         onClick={() => handleClick(r.id)}
                         onMouseOver={() => handleHover(r.roleInfo)}
-                        onMouseLeave={() => setShowContent(false)}>
+                        onMouseLeave={() => setShowContent(false)}
+                    >
                         <img
                             className='role-box-image' 
                             src={'/images/roles/' + r.imageUrl} 
@@ -57,13 +58,13 @@ const RoleSelector = ({ roles, setRoles }: IRoleSelectorProps) => {
                     </div>
                 ))}
             </div>
-            {
-                showContent && (
-                    <div className="infoHolder" >
-                        {text}
-                    </div>
-                )
-            }
+            <div className="infoHolder">
+                {
+                    showContent && (
+                        <p>{text}</p>
+                    )
+                }
+            </div>
         </>
     )
 }
