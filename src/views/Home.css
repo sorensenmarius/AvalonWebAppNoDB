@@ -20,6 +20,6 @@
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    bottom: 10vw;
+    bottom: 20vw;
     text-align: center;
 }
