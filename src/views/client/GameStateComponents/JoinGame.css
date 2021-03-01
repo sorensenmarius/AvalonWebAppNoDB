@@ -9,8 +9,33 @@
     background-size: cover;
     z-index: -1;
     top: 0;
+    filter: grayscale(30%) brightness(70%);
 }
 
-.join-game-button {
-    bottom: 10%;
+.join-game-title {
+    margin-top: 7vh;
+}
+
+.join-game-button-position {
+    margin-top: 10vh;
+}
+
+.join-game-input-field:first-of-type {
+    margin-top: 40vh;
+}
+
+.join-game-input-field {
+    background-color: rgba(39, 39, 39, 0.7);
+    border: solid 0.2rem rgba(255, 255, 255, 0.8);
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    width: 70%;
+    font-size: 17px;
+    font-weight: 550;
+    border-radius: 4px;
+}
+
+.join-game-input-field::placeholder {
+    color: #ccc;
 }

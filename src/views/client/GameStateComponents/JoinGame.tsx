@@ -35,24 +35,25 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
         <>
             <div className='join-game-background' />
             <h1 
-                // className='center-text white-text'
+                className='center-text white-text join-game-title'
             >
-                Join game
+                Join Game
             </h1>
-            {/* <input 
+            <input 
                 type="number" 
                 placeholder="Join Code"
-                className='center'
+                className='center join-game-input-field'
                 onChange={e => setJoinCode(+e.target.value)}
             />
             <br />
             <input 
                 type="text" 
                 placeholder="Name"
-                className='center'
+                className='center join-game-input-field'
                 onChange={e => setPlayerName(e.target.value)}
-            /> */}
+            />
             <Button
+                className='join-game-button-position'
                 disabled={!joinCode || !playerName}
                 onClick={joinGame}
             >Join</Button>
