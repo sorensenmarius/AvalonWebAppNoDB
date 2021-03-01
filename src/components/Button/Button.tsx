@@ -16,10 +16,7 @@ const Button = ({onClick, disabled = false, children, className}: IButtonProps) 
 
     return(
         <div 
-            className={`fantasy-button ${className ?? ''}`}
-            style={{
-                color: disabled ? '#777' : 'white'
-            }}
+            className={`fantasy-button ${className ?? ''} ${disabled ? 'button-disabled' : ''}`}
             onClick={clickButton}
         >
             <span>

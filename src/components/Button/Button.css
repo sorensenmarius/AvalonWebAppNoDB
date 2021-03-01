@@ -12,6 +12,8 @@
     min-width: 200px;
     max-width: 250px;
     margin: auto;
+    color: beige;
+    transition: all ease 0.4s;
 }
 
 .fantasy-button,
@@ -39,4 +41,9 @@
 .fantasy-button:after {
     right: -2px;
     background-position: 0px -162px;
+}
+
+.button-disabled {
+    filter: grayscale(90%);
+    color: #666;
 }
