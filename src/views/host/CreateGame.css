@@ -40,6 +40,7 @@
     position: relative;
     padding: 3rem;
     z-index: 9;
+    height: 80%;
 }
 .LeftSide{
     color: rgb(255, 255, 255);
