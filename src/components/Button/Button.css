@@ -39,3 +39,8 @@
     right: -2px;
     background-position: 0px -162px;
 }
+
+.center-button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
