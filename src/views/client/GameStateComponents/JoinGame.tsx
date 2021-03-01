@@ -7,6 +7,8 @@ import GameHubMethods from "../../../services/GameHubMethods";
 import { setupSocket } from "../../../services/GameHubUtils";
 import GameService from "../../../services/GameService";
 
+import './JoinGame.css'
+
 interface IJoinGameProps {
     setGame: (game: Game) => void,
     setMe: (me: Player) => void,
@@ -31,21 +33,34 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
 
     return(
         <>
-            <h1>Join game</h1>
+            <div className='join-game-background' />
+            <h1 
+                className='center-text white-text'
+            >
+                Join game
+            </h1>
             <input 
                 type="number" 
                 placeholder="Join Code"
+                className='center'
                 onChange={e => setJoinCode(+e.target.value)}
             />
+            <br />
             <input 
                 type="text" 
                 placeholder="Name"
+                className='center'
                 onChange={e => setPlayerName(e.target.value)}
             />
-            <Button
-                disabled={!joinCode || !playerName}
-                onClick={joinGame}
-            >Join</Button>
+            <div
+                className='join-game-button'
+            >
+                <Button
+                    center
+                    disabled={!joinCode || !playerName}
+                    onClick={joinGame}
+                >Join</Button>
+            </div>
         </>
     )
 }

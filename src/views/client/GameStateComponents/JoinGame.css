@@ -1,0 +1,16 @@
+.join-game-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../../assets/images/fantasy-path.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+    top: 0;
+}
+
+.join-game-button {
+    bottom: 10%;
+}
