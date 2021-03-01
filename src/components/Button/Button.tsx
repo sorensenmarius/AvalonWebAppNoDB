@@ -4,10 +4,9 @@ interface IButtonProps {
     onClick: () => void
     disabled?: boolean
     children?: React.ReactNode
-    center?: boolean
 }
 
-const Button = ({onClick, disabled = false, children, center}: IButtonProps) => {
+const Button = ({onClick, disabled = false, children}: IButtonProps) => {
 
     const clickButton = () => {
         if (!disabled)
@@ -16,7 +15,7 @@ const Button = ({onClick, disabled = false, children, center}: IButtonProps) => 
 
     return(
         <div 
-            className={`fantasy-button${center ? ' center-button' : ''}`}
+            className={'fantasy-button'}
             style={{
                 color: disabled ? 'darkred' : 'lightgoldenrodyellow'
             }}

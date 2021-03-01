@@ -1,7 +1,6 @@
 .fantasy-button {
-    margin: 1em;
     position: relative;
-    display: inline-block;
+    display: block;
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
@@ -11,6 +10,8 @@
     background-repeat: repeat-x;
     background-position: 0px 0px;
     min-width: 200px;
+    max-width: 250px;
+    margin: auto;
 }
 
 .fantasy-button,
@@ -38,9 +39,4 @@
 .fantasy-button:after {
     right: -2px;
     background-position: 0px -162px;
-}
-
-.center-button {
-    margin-left: 50%;
-    transform: translateX(-50%);
 }

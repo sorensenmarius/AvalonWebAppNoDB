@@ -35,11 +35,11 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
         <>
             <div className='join-game-background' />
             <h1 
-                className='center-text white-text'
+                // className='center-text white-text'
             >
                 Join game
             </h1>
-            <input 
+            {/* <input 
                 type="number" 
                 placeholder="Join Code"
                 className='center'
@@ -51,16 +51,11 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
                 placeholder="Name"
                 className='center'
                 onChange={e => setPlayerName(e.target.value)}
-            />
-            <div
-                className='join-game-button'
-            >
-                <Button
-                    center
-                    disabled={!joinCode || !playerName}
-                    onClick={joinGame}
-                >Join</Button>
-            </div>
+            /> */}
+            <Button
+                disabled={!joinCode || !playerName}
+                onClick={joinGame}
+            >Join</Button>
         </>
     )
 }
