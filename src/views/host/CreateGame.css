@@ -42,17 +42,15 @@
     z-index: 9;
 }
 .LeftSide{
-    margin-top: 2rem;
     color: rgb(255, 255, 255);
     flex-direction: column;
     text-align: center;
     width: 55%;
-    height: 50rem;
+    max-height: 50rem;
 }
 .RightSide{
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
     margin-left: 2rem;
     color: rgb(255, 255, 255);
     width: 40%;
@@ -62,27 +60,39 @@
 .JoinCode{
     margin-top: 2rem;
     margin-bottom: 5rem;
-    flex-direction: column;
     text-align: center;
-    align-items: center;
     width: 12rem;
     height: 5rem;
     background-color: rgba(39, 39, 39, 0.4);
-
     border: solid 0.2rem rgba(255, 255, 255, 0.8);
     border-radius: 1%;
 }
-.PlayerHolder{
+
+.join-code-text {
+    margin: 0;
+    line-height: 5rem;
+}
+
+.player-holder {
     display: grid;
-    grid-template-columns: repeat(2, 10rem);
-    grid-template-rows: repeat(10,4.5rem);
     column-gap: 1rem;
     row-gap: 1rem;
     flex-direction: column;
     align-items: center;
-    width: 20rem;
-    height: 40rem;
 }
+
+.player-holder.small {
+    grid-template-columns: repeat(2, 10rem);
+    grid-template-rows: repeat(5, 4rem);
+}
+
+.player-holder.big {
+    grid-template-columns: repeat(3, 10rem);
+    grid-template-rows: repeat(6, 4rem);
+}
+
+
+
 .PlayerCard{
     text-align: center;    
     background-color: rgba(92, 91, 91, 0.4);

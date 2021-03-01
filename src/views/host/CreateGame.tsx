@@ -7,7 +7,7 @@ import GameHubMethods from "../../services/GameHubMethods";
 import { setupSocket } from "../../services/GameHubUtils";
 import GameService from "../../services/GameService";
 import RoleSelector from "./RoleSelector";
-import "./CreateGameStyling.css"
+import "./CreateGame.css"
 interface ICreateGame {
     game?: Game
     socket?: HubConnection
@@ -20,7 +20,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
     useEffect(() => {
         if (!game || !socket)
             createGame()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const createGame = async () => {
@@ -46,14 +46,17 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                 <div className="BlurCardBackground"></div>
                 <div className="ContentHolder">
                     <div className="LeftSide">
-                        <RoleSelector game={game} roles={roles} setRoles={setRoles} />
+                        <RoleSelector roles={roles} setRoles={setRoles} />
                     </div>
                     <div className="RightSide">
-                        <h2>Join Code and players that have joined</h2>
-                        <div className="JoinCode">
-                            <h1>{game?.joinCode ? game?.joinCode : "Could not get join code"}</h1>
-                        </div>
-                        <div className="PlayerHolder">
+                        {game?.joinCode ?                            
+                            <div className="JoinCode">
+                                <h1 className='join-code-text'>{game?.joinCode}</h1>
+                            </div>
+                        :
+                            <h1>Could not create game</h1>
+                        }
+                        <div className={`player-holder ${game?.players && game.players.length > 10 ? 'big' : 'small'}`}>
                             {game?.players.map((p: Player) => (
                                 <div className="PlayerCard">
                                     <p>{p.name}</p>
@@ -61,7 +64,10 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                             ))}
                         </div>
 
-                        <Button onClick={startGame}>
+                        <Button 
+                            onClick={startGame}
+                            disabled={!game?.players || game.players.length < 5}
+                        >
                             Start
                         </Button>
                     </div>

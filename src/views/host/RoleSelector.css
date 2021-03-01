@@ -1,0 +1,35 @@
+.RoleSelectorContainer{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.roleBox{
+    background-color: rgba(92, 91, 91, 0.4);
+    border-radius: 1%;
+    border: solid 3px transparent;
+    padding: 2rem;
+}
+
+.roleBox:hover,
+.role-box-checked {
+    border: solid 3px rgb(190, 190, 190);
+    filter: brightness(150%);
+}
+
+.role-box-image {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.infoHolder{
+    text-align: left;
+    margin-top: 1rem;
+    padding: 2rem;
+    background-color: rgba(92, 91, 91, 0.1);
+}
+
+.heading{
+    text-align: left;
+    margin-top: 0;
+}
