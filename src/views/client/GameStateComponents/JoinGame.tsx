@@ -15,12 +15,12 @@ interface IJoinGameProps {
     setSocket: (socket: HubConnection) => void
 }
 
-const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
+const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
     const [joinCode, setJoinCode] = useState<number>(-1);
     const [playerName, setPlayerName] = useState<string>('');
 
     const joinGame = async () => {
-        const {game, me}: {game: Game, me: Player} = await GameService.joinGame(joinCode, playerName);
+        const { game, me }: { game: Game, me: Player } = await GameService.joinGame(joinCode, playerName);
 
         setGame(game);
         setMe(me);
@@ -31,23 +31,22 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
         })
     }
 
-    return(
-        <>
-            <div className='join-game-background' />
-            <h1 
-                className='center-text white-text join-game-title'
-            >
-                Join Game
-            </h1>
-            <input 
-                type="number" 
+    return (
+        <div className='home-page-background'>
+            <img
+                src="/images/Avalon.png"
+                alt="Avalon"
+                className='large-logo center'
+            />
+            <input
+                type="number"
                 placeholder="Join Code"
                 className='center join-game-input-field'
                 onChange={e => setJoinCode(+e.target.value)}
             />
             <br />
-            <input 
-                type="text" 
+            <input
+                type="text"
                 placeholder="Name"
                 className='center join-game-input-field'
                 onChange={e => setPlayerName(e.target.value)}
@@ -57,7 +56,7 @@ const JoinGame = ({setGame, setMe, setSocket}: IJoinGameProps) => {
                 disabled={!joinCode || !playerName}
                 onClick={joinGame}
             >Join</Button>
-        </>
+        </div>
     )
 }
 

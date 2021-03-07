@@ -31,7 +31,7 @@ const PlayGame = () => {
         />
 
     if (game.status === GameStatus.WaitingForPlayers)
-        return <WaitingForPlayers />
+        return <WaitingForPlayers game={game} />
     
     if (game.status === GameStatus.Playing)
         return <PlayRound game={game} me={me} socket={socket}/>

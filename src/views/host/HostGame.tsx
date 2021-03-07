@@ -23,10 +23,8 @@ const HostGame = () => {
     if (game.status === GameStatus.Ended)
         return <GameEnded game={game} />
 
-
-    // if (game.status === GameStatus.AssassinTurn)
     return(
-        <h1>Not yeat implemented</h1>
+        <h1>Not yet implemented</h1>
     )
 }
 
