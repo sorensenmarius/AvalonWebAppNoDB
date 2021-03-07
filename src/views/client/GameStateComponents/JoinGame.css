@@ -2,7 +2,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: url('https://www.gameaboo.com/wp-content/uploads/2017/09/41959132_ml-724x1024.jpg') no-repeat center center fixed;
+    background: url('../../../assets/images/home-background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -26,9 +26,9 @@
 }
 
 .join-game-input-field {
-    background-color: rgba(39, 39, 39, 0.3);
+    background-color: rgba(39, 39, 39, 0.5);
     border: solid 0px black;
-    border-bottom: solid 0.4rem rgb(36, 56, 143);
+    border-bottom: solid 0.3rem rgb(36, 56, 143);
     color: #fff;
     text-align: center;
     height: 40px;
@@ -39,6 +39,21 @@
     max-width: 300px;
 }
 
+.join-game-input-field:focus {
+    outline: none;
+}
+
 .join-game-input-field::placeholder {
     color: rgb(251, 251, 251);
+}
+
+.join-game-input-field::-webkit-outer-spin-button,
+.join-game-input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.join-game-input-field[type=number] {
+  -moz-appearance: textfield;
 }

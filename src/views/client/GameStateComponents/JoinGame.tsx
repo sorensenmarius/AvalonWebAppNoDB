@@ -37,7 +37,7 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
             <img
                 src="/images/Avalon.png"
                 alt="Avalon"
-                className='join-game-title center'
+                className='large-logo center'
             />
             <input
                 type="number"

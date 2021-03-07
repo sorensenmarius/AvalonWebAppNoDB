@@ -25,3 +25,9 @@ code {
 .white-text {
   color: #fff;
 }
+
+.large-logo {
+  width: 70%;
+  max-width: 600px;
+  margin-top: 10%;
+}

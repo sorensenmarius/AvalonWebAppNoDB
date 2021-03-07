@@ -11,7 +11,7 @@ const Home = () => {
             <img 
                 src="/images/Avalon.png" 
                 alt="Avalon" 
-                className='home-page-logo center'
+                className='large-logo center'
             />
             <div className='home-page-buttons-div'>
                 <Button onClick={() => history.push("/HostGame")}>Host</Button>
