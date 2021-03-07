@@ -1,19 +1,7 @@
-.join-game-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: url('../../../assets/images/fantasy-path.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    z-index: -1;
-    top: 0;
-    filter: grayscale(30%) brightness(70%);
-}
-
 .join-game-title {
-    margin-top: 7vh;
+    margin-top: 14vh;
+    width: 70%;
+    max-width: 600px;
 }
 
 .join-game-button-position {
@@ -21,12 +9,13 @@
 }
 
 .join-game-input-field:first-of-type {
-    margin-top: 40vh;
+    margin-top: 30vh;
 }
 
 .join-game-input-field {
-    background-color: rgba(39, 39, 39, 0.7);
-    border: solid 0.2rem rgba(255, 255, 255, 0.8);
+    background-color: rgba(39, 39, 39, 0.5);
+    border: solid 0px black;
+    border-bottom: solid 0.3rem rgb(36, 56, 143);
     color: #fff;
     text-align: center;
     height: 40px;
@@ -37,6 +26,21 @@
     max-width: 300px;
 }
 
+.join-game-input-field:focus {
+    outline: none;
+}
+
 .join-game-input-field::placeholder {
-    color: #ccc;
+    color: rgb(251, 251, 251);
+}
+
+.join-game-input-field::-webkit-outer-spin-button,
+.join-game-input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.join-game-input-field[type=number] {
+  -moz-appearance: textfield;
 }
