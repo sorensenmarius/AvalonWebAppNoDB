@@ -14,14 +14,16 @@ const RevealVotes = ({game, me, socket, gameHubMethod}: IRevealVotesProps) => {
 
     return(
         <>
-            <h1>Waiting for result on screen :O</h1>
-            {game.currentPlayer.id === me.id &&
-                <Button
-                    onClick={nextStep}    
-                >
-                    Continue
-                </Button>
-            }
+            <h1 style={{marginTop: '20vh'}}>Revealing votes</h1>
+            <div style={{marginTop: '40vh'}}>
+                {game.currentPlayer.id === me.id &&
+                    <Button
+                        onClick={nextStep}    
+                    >
+                        Continue
+                    </Button>
+                }
+            </div>
         </>
     )
 }

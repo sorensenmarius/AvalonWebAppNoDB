@@ -1,0 +1,10 @@
+.client-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../assets/images/client-background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

@@ -1,0 +1,30 @@
+.select-players-list {
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.select-players-list.big {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.select-players-item {
+    margin: 3px;
+    text-align: center;    
+    background-color: rgba(60, 60, 60, 0.7);
+    border: solid 0.2rem rgba(90, 80, 80, 1);
+    transition: all 0.4s ease;
+}
+
+.select-players-item.selected {
+    background-color: rgba(91, 91, 91, 0.7);
+    border: solid 0.2rem rgba(120, 100, 100, 1);
+}
+
+.select-players-item.selected.red {
+    background-color: rgba(124, 19, 19, 0.7);
+    border: solid 0.2rem rgb(136, 2, 2);
+}

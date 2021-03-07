@@ -5,9 +5,10 @@ interface IButtonProps {
     disabled?: boolean
     children?: React.ReactNode
     className?: string
+    red?: boolean
 }
 
-const Button = ({onClick, disabled = false, children, className}: IButtonProps) => {
+const Button = ({onClick, disabled = false, children, className, red}: IButtonProps) => {
 
     const clickButton = () => {
         if (!disabled)
@@ -16,7 +17,11 @@ const Button = ({onClick, disabled = false, children, className}: IButtonProps) 
 
     return(
         <div 
-            className={`fantasy-button ${className ?? ''} ${disabled ? 'button-disabled' : ''}`}
+            className={ `fantasy-button 
+                            ${className ?? ''} 
+                            ${disabled ? 'disabled' : ''}
+                            ${red ? 'red' : ''}
+                        `}
             onClick={clickButton}
         >
             <span>

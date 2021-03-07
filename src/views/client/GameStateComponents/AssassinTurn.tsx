@@ -6,6 +6,7 @@ import Player from "../../../models/Player";
 import GameHubMethods from "../../../services/GameHubMethods";
 import SelectPlayers from "../Helpers/SelectPlayers";
 
+import './AssassinTurn.css'
 
 const AssassinTurn = ({game, me, socket} : IBasicProps) => {
     const [selected, setSelected] = useState<Player[]>([]);
@@ -16,20 +17,23 @@ const AssassinTurn = ({game, me, socket} : IBasicProps) => {
 
     if (me.roleId === Role.Assassin) {
         return (
-            <>
+            <div className='assassin-background'>
+                <h1>Assassinate Merlin</h1>
                 <SelectPlayers 
                     num={1}
                     players={game.players}
                     selected={selected}
                     setSelected={setSelected}
+                    red
                 />
                 <Button
                     disabled={selected.length === 0}
                     onClick={submitAssassination}
+                    red
                 >
                     Assassinate {selected.length > 0 ? selected[0].name : ''}
                 </Button>
-            </>
+            </div>
         )
     }
     return (
