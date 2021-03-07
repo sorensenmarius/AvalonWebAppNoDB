@@ -23,3 +23,8 @@
     background-color: rgba(91, 91, 91, 0.7);
     border: solid 0.2rem rgba(120, 100, 100, 1);
 }
+
+.select-players-item.selected.red {
+    background-color: rgba(124, 19, 19, 0.7);
+    border: solid 0.2rem rgb(136, 2, 2);
+}
