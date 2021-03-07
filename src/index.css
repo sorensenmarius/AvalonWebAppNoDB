@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 code {
@@ -30,4 +31,15 @@ code {
   width: 70%;
   max-width: 600px;
   margin-top: 10%;
+}
+
+.home-page-background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url('./assets/images/home-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

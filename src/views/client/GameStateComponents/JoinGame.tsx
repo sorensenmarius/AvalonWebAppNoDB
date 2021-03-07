@@ -32,8 +32,7 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
     }
 
     return (
-        <>
-            <div className='join-game-background' />
+        <div className='home-page-background'>
             <img
                 src="/images/Avalon.png"
                 alt="Avalon"
@@ -57,7 +56,7 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                 disabled={!joinCode || !playerName}
                 onClick={joinGame}
             >Join</Button>
-        </>
+        </div>
     )
 }
 
