@@ -28,23 +28,26 @@ const Vote = ({game, me, expedition, socket}: IVoteProps) => {
     if (iAmVoting && !haveVoted) {
         return(
             <>
-                <h1>Vote for {expedition ? 'expedition' : 'team'}</h1>
-                <Button
-                    onClick={() => registerVote(true)}
-                >
-                    {expedition ? 'Accept' : 'Success'}
-                </Button>
-                <Button
-                    onClick={() => registerVote(false)}
-                >
-                    {expedition ? 'Reject' : 'Fail'}
-                </Button>
+                <h1  style={{marginTop: '20vh'}}>Vote for {expedition ? 'expedition' : 'team'}</h1>
+                <div style={{marginTop: '40vh'}}>
+                    <Button
+                        onClick={() => registerVote(true)}
+                    >
+                        {expedition ? 'Success' : 'Accept'}
+                    </Button>
+                    <Button
+                        onClick={() => registerVote(false)}
+                        red={expedition}
+                    >
+                        {expedition ? 'Fail' : 'Reject'}
+                    </Button>
+                </div>
             </>
         )
     }
 
     return(
-        <h1>Waiting for votes</h1>
+        <h1 style={{marginTop: '20vh'}}>Waiting for votes</h1>
     )
 }
 
