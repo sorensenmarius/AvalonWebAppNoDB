@@ -56,33 +56,6 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                             <h1>Could not create game</h1>
                         }
                         <div className={`player-holder ${game?.players && game.players.length > 10 ? 'big' : 'small'}`}>
-                            <>
-                                <div className="PlayerCard">
-                                    <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    <p>Simon</p>
-                                </div>
-                                <div className="PlayerCard">
-                                    <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    <p>Marius</p>
-                                </div>
-                                <div className="PlayerCard">
-                                    <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    <p>Ove</p>
-                                </div>
-                                <div className="PlayerCard">
-                                    <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    <p>Simon</p>
-                                </div>
-                                <div className="PlayerCard">
-                                    <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    <p>Marthe</p>
-                                </div>
-                                <div className="PlayerCard">
-                                    <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    <p>Johanna</p>
-                                </div>
-
-                            </>
                             {game?.players.map((p: Player) => (
                                 <div className="PlayerCard">
                                     {game.players.length < 10 && (
