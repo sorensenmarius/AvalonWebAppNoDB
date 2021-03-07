@@ -23,7 +23,7 @@ const SelectingTeam = ({game, me, socket}: IBasicProps) => {
     if (game.currentPlayer.id === me.id) {
         return(
             <>
-                <h1>You are choosing people for a mission</h1>
+                <h1>Choose {game.currentRound.requiredPlayers} players</h1>
                 <SelectPlayers
                     num={game.currentRound.requiredPlayers}
                     players={game.players}

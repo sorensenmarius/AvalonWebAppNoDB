@@ -9,6 +9,8 @@ import PlayRound from "./GameStateComponents/PlayRound";
 import GameEnded from "./GameStateComponents/GameEnded";
 import Player from "../../models/Player";
 
+import './PlayGame.css'
+
 const PlayGame = () => {
     const [game, setGame] = useState<Game>();
     const [me, setMe] = useState<Player>();
