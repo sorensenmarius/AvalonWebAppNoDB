@@ -1,0 +1,53 @@
+.SelectingTeamMain{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+.NmrPlayers{
+    margin-top: 0%;
+}
+.GridContainer{
+    display: grid;
+    width: 90%;
+    height: 90%;
+    margin-top: 3vh;
+    grid-row-gap: 3vh;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(3, 15vh);
+    align-items: center;
+    justify-items: center;
+}
+.PlayerCard{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation:fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation:fadeIn ease 3s;
+}
+.centeredPlayerName {
+    position: absolute;
+    color: white;
+    bottom: -5%;
+}
+.centeredPlayerNameChosen{
+    position: absolute;
+    bottom: -3%;
+    color: black;
+    
+}
+.fade-in {
+    animation: fadeIn ease 20s;
+    -webkit-animation: fadeIn ease 20s;
+    -moz-animation: fadeIn ease 20s;
+    -o-animation: fadeIn ease 20s;
+    -ms-animation: fadeIn ease 20s;
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    

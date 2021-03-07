@@ -13,17 +13,17 @@ const HostGame = () => {
 
     if (!game || game.status === GameStatus.WaitingForPlayers)
         return <CreateGame game={game} setGame={setGame} socket={socket} setSocket={setSocket} />
-    
+
     if (game.status === GameStatus.Playing)
         return <HostRound game={game} />
-    
+
     if (game.status === GameStatus.AssassinTurn)
         return <AssassinTurnHost game={game} />
-    
+
     if (game.status === GameStatus.Ended)
         return <GameEnded game={game} />
 
-    return(
+    return (
         <h1>Not yet implemented</h1>
     )
 }

@@ -20,7 +20,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
     useEffect(() => {
         if (!game || !socket)
             createGame()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const createGame = async () => {
@@ -48,22 +48,25 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                         <RoleSelector roles={roles} setRoles={setRoles} />
                     </div>
                     <div className="RightSide">
-                        {game?.joinCode ?                            
+                        {game?.joinCode ?
                             <div className="JoinCode">
                                 <h1 className='join-code-text'>{game?.joinCode}</h1>
                             </div>
-                        :
+                            :
                             <h1>Could not create game</h1>
                         }
                         <div className={`player-holder ${game?.players && game.players.length > 10 ? 'big' : 'small'}`}>
                             {game?.players.map((p: Player) => (
                                 <div className="PlayerCard">
+                                    {game.players.length < 10 && (
+                                        <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
+                                    )}
                                     <p>{p.name}</p>
                                 </div>
                             ))}
                         </div>
 
-                        <Button 
+                        <Button
                             onClick={startGame}
                             disabled={!game?.players || game.players.length < 5}
                         >

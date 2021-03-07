@@ -92,10 +92,14 @@
     grid-template-rows: repeat(6, 4rem);
 }
 
-
-
 .PlayerCard{
+    display: flex;
+    flex-direction: row;
     text-align: center;    
-    background-color: rgba(92, 91, 91, 0.4);
-    border: solid 0.2rem rgba(120, 100, 100, 0.4);
+    padding: 0.2rem;
+}
+
+.PlayerImage{
+    margin-right: 1rem;
+    border-radius: 50%;
 }
