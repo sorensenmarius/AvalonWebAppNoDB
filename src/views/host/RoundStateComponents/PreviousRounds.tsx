@@ -15,18 +15,17 @@ const PreviousRounds = ({ game }: IGameProp) => {
                     return (
                         <div className={round.votesAgainstExpedition >= 1 ? "PreviousRoundCards Failure" : "PreviousRoundCards Success"}>
                             <div className="Leader">
-                                <h1 className="VotesFor"> {round.votesForExpedition}&nbsp;</h1>
-                                <h1>-</h1>
-                                <h1 className="VotesAgainst">&nbsp;{round.votesAgainstExpedition}</h1>
+                                <h1><span className='VotesFor'>{round.votesForExpedition}</span> - <span className='VotesAgainst'>{round.votesAgainstExpedition}</span></h1>
                                 <div className="SiluettHolder">
-
+                                    {tempVotes.map((vote) => {
+                                        if (vote === true)
+                                            return <img src="/images/gooduser.png" alt='Good User'/>
+                                        else
+                                            return <img src="/images/eviluser.png" alt='Evil User'/>
+                                    })}
                                 </div>
-                                {tempVotes.map((vote) => {
-                                    if (vote == true)
-                                        return <img src="/images/playersilChosen.png" alt="" height="170%" width="20%" />
-                                    else
-                                        return <img src="/images/playersilEvil.png" alt="" height="168%" width="13%" />
-                                })}
+                            </div>
+                            <div>
                             </div>
                         </div>
                     )

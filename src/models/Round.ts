@@ -5,7 +5,6 @@ interface Round {
     id: string,
     failedTeams: number,
     currentTeam: Player[],
-    teamString: string,
     status: RoundStatus,
     votesForTeam: number,
     votesAgainstTeam: number,
