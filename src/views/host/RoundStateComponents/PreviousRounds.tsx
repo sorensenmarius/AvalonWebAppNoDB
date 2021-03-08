@@ -21,6 +21,7 @@ const PreviousRounds = ({ game }: IGameProp) => {
                         </div>
                     )
                 }
+                return null
             })}
         </div>
     )
