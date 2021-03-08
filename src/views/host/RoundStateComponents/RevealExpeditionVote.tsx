@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import IGameProp from "../../../models/IGameProp";
+import './RevealExpeditionVote.css'
 
 const RevealExpeditionVote = ({game}: IGameProp) => {
     const [votes, setVotes] = useState<boolean[]>([])
@@ -7,7 +8,7 @@ const RevealExpeditionVote = ({game}: IGameProp) => {
     useEffect(() => {
         const currentRound = game.currentRound
         let tempVotes = new Array(currentRound.votesForExpedition).fill(true)
-        tempVotes.push(new Array(currentRound.votesAgainstExpedition).fill(false))
+        tempVotes = tempVotes.concat(new Array(currentRound.votesAgainstExpedition).fill(false))
         setVotes(tempVotes)
 
         setTimeout(reveal, 3000, tempVotes)
@@ -25,34 +26,27 @@ const RevealExpeditionVote = ({game}: IGameProp) => {
     }
 
     return(
-        <h1>The votes were {votes.join(', ')}</h1>
-
-        // This is the old codo for flipping the images
-        
-        // <Row
-        //     justify="center"
-        //     className="verticallyCentered"
-        // >
-        //     {votes.map((v, index) => (
-        //         <Col
-        //             key={'flipVote'+index}
-        //         >
-        //             <div 
-        //                 style={{
-        //                     width: 'calc(80vw / ' + votes.length + ')',
-        //                     height: 'calc(80vw / ' + votes.length + ')'
-        //                 }}
-        //                 className="flip-vote" 
-        //                 id={'flipVote'+index} 
-        //             >
-        //                 <div className="flip-vote-inner">
-        //                     <div className="flip-vote-front" />
-        //                     <div className={(v ? 'goodVote' : 'evilVote') + ' flip-vote-back'} />
-        //                 </div>
-        //             </div>
-        //         </Col>
-        //     ))}
-        // </Row>
+        <div
+            className="expedition-vote-holder"
+        >
+            {votes.map((v, index) => (
+                <div 
+                    key={'flipVote'+index}
+                    style={{
+                        width: 'calc(80% / ' + votes.length + ')',
+                        height: 'calc(80% / ' + votes.length + ')'
+                    }}
+                    className="flip-vote" 
+                    id={'flipVote'+index} 
+                >
+                    <div className="flip-vote-inner">
+                        <div className="flip-vote-front" />
+                        <div className={`${v ? 'goodVote' : 'evilVote'} flip-vote-back`} />
+                        {v}
+                    </div>
+                </div>
+            ))}
+        </div>
     )
 }
 

@@ -59,7 +59,7 @@ const RoleSelector = ({ roles, setRoles }: IRoleSelectorProps) => {
             <div className="RoleSelectorContainer">
                 {availableRoles.map(r => (
                     <div key={r.id}
-                        className={`${roles.includes(r.id) ? ' role-box-checked' : ''} ${r.id > 3 ? (r.id == 8 ? 'neutral' : 'evil') : 'good'}`}
+                        className={`role-box ${roles.includes(r.id) ? ' role-box-checked' : ''} ${r.id > 3 ? (r.id === 8 ? 'neutral' : 'evil') : 'good'}`}
                         onClick={() => handleClick(r.id)}
                         onMouseOver={() => handleHover(r.roleInfo)}
                         onMouseLeave={() => setShowContent(false)}

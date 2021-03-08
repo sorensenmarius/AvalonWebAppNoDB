@@ -1,4 +1,3 @@
-import Game from "../../../models/Game";
 import IGameProp from "../../../models/IGameProp";
 import "./SelectingTeamHost.css"
 

@@ -1,0 +1,21 @@
+.game-ended-background-host {
+    position: absolute;
+    width: 100vw;
+    height: 75vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    padding-top: 25vh;
+}
+
+.game-ended-background-host.evil {
+    background:rgba(0,0,0,0.65) url('../../assets/images/evil-win-host.jpg') no-repeat center center fixed;
+    background-blend-mode: darken;
+}
+
+.game-ended-background-host.good {
+    background:rgba(0,0,0,0.65) url('../../assets/images/evil-win-host.jpg') no-repeat center center fixed;
+    background-blend-mode: darken;
+}

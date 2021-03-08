@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import IGameProp from "../../models/IGameProp";
 
+import './GameEnded.css'
+
 const GameEnded = ({game}: IGameProp) => {
     const [goodWon, setGoodWon] = useState<boolean>()
     const [winnerNames, setWinnerNames] = useState<string>()
 
     useEffect(() => {
-        const tmpGoodWon = game.pointsEvil > game.pointsInnocent
+        const tmpGoodWon = game.pointsInnocent > game.pointsEvil
 
         const goodTeam = game.players.filter(p => !p.isEvil)
         const evilTeam = game.players.filter(p => p.isEvil)
@@ -17,19 +19,19 @@ const GameEnded = ({game}: IGameProp) => {
     }, [game.players, game.pointsEvil, game.pointsInnocent])
 
     return(
-        <>
+        <div className={`game-ended-background-host ${goodWon ? 'good' : 'evil'}`}>
             <h1>Congratulations to the {goodWon ? 'good' : 'evil'} team!</h1>
             <h2>{winnerNames}</h2>
 
             {game.pointsInnocent >= 0 ?
                 <>
-                    <h3>Good had {game.pointsInnocent}</h3>
-                    <h3>Evil had {game.pointsEvil}</h3>
+                    <h3>Good had {game.pointsInnocent} point{game.pointsInnocent !== 1 ? 's' : ''}</h3>
+                    <h3>Evil had {game.pointsEvil} point{game.pointsEvil !== 1 ? 's' : ''}</h3>
                 </>
             : 
                 <h3>Evil won by assassinating Merlin!</h3>
             }
-        </>
+        </div>
     )
 }
 

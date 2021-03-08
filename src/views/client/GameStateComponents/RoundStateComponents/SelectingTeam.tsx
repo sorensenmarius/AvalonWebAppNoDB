@@ -49,7 +49,7 @@ const SelectingTeam = ({game, me, socket}: IBasicProps) => {
     }
 
     return(
-        <h1>Waiting for {game.currentPlayer.name} to choose a team</h1>
+        <h1 style={{marginTop: '20vh'}}>Waiting for {game.currentPlayer.name} to choose a team</h1>
     )
 }
 

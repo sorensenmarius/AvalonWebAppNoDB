@@ -1,0 +1,17 @@
+.game-ended-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.game-ended-background.evil {
+    background: url('../../../assets/images/assassin-background.jpg') no-repeat center center fixed;
+}
+
+.game-ended-background.good {
+    background: url('../../../assets/images/good-win.jpg') no-repeat center center fixed;
+}
