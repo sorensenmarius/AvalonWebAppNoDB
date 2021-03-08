@@ -8,7 +8,7 @@ interface ISelectingTeamHost {
 const SelectingTeamHost = ({ game }: ISelectingTeamHost) => {
     return (
         <div className="SelectingTeamMain">
-            <h2>Simon is choosing a Team</h2>
+            <h2>{game.currentPlayer.name} is choosing a Team</h2>
             <h3 className="NmrPlayers">{game.currentRound.requiredPlayers} players</h3>
             <div className="GridContainer">
                 {game.currentRound.currentTeam.map(p => (

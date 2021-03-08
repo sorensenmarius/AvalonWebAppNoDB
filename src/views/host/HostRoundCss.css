@@ -55,6 +55,19 @@
     width: 100%;
     flex-direction: row;
 }
+.VotesFor{
+    margin-left: 1vw;
+    color: rgb(102, 255, 0);
+}
+.VotesAgainst{
+    color: red;
+}
+.SiluettHolder{
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+
+}
 .ScoreAndMainComp{
     display: flex;
     flex-direction: column;
