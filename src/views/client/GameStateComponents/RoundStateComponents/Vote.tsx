@@ -10,6 +10,11 @@ interface IVoteProps extends IBasicProps {
 const Vote = ({game, me, expedition, socket}: IVoteProps) => {
     const [iAmVoting, setIAmVoting] = useState<boolean>(false)
     const [haveVoted, setHaveVoted] = useState<boolean>(false)
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     useEffect(() => {
         if (!expedition) {
@@ -17,12 +22,18 @@ const Vote = ({game, me, expedition, socket}: IVoteProps) => {
         } else {
             setIAmVoting(game.currentRound.currentTeam.map(p => p.id).includes(me.id))
         }
+
+        setLoading(false)
     }, [game, expedition, me])
 
     const registerVote = (successVote: boolean) => {
         const socketFunction = expedition ? GameHubMethods.SubmitExpeditionVote : GameHubMethods.SubmitTeamVote
-        setHaveVoted(true)
-        socket.invoke(socketFunction, game.id, successVote)
+        if(!loading) {
+            setHaveVoted(true)
+            socket.invoke(socketFunction, game.id, successVote)
+        }
+
+        setLoading(true)
     }
 
     if (iAmVoting && !haveVoted) {

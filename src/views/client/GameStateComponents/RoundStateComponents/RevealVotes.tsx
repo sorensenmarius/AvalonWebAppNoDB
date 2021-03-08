@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../../../components/Button/Button";
 import IBasicProps from "../../../../models/IBasicProps";
 import GameHubMethods from "../../../../services/GameHubMethods";
@@ -8,8 +8,17 @@ interface IRevealVotesProps extends IBasicProps {
 }
 
 const RevealVotes = ({game, me, socket, gameHubMethod}: IRevealVotesProps) => {
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(false)
+    }, [])
+
     const nextStep = () => {
-        socket.invoke(gameHubMethod, game.id)
+        if (!loading)
+            socket.invoke(gameHubMethod, game.id)
+        
+        setLoading(true)
     }
 
     return(

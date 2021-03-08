@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
 import Role from "../../../models/enums/Roles";
 import IBasicProps from "../../../models/IBasicProps";
@@ -10,9 +10,17 @@ import './AssassinTurn.css'
 
 const AssassinTurn = ({game, me, socket} : IBasicProps) => {
     const [selected, setSelected] = useState<Player[]>([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     const submitAssassination = () => {
-        socket.invoke(GameHubMethods.Assassinate, game.id, selected[0].id)
+        if(!loading)
+            socket.invoke(GameHubMethods.Assassinate, game.id, selected[0].id)
+        
+        setLoading(true)
     }
 
     if (me.roleId === Role.Assassin) {
