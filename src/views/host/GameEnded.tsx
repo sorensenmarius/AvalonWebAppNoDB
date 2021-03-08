@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
+import Button from "../../components/Button/Button";
 import IGameProp from "../../models/IGameProp";
 
 import './GameEnded.css'
 
-const GameEnded = ({game}: IGameProp) => {
+interface IGameEndedProps extends IGameProp{
+    resetGame: () => void
+}
+
+const GameEnded = ({game, resetGame}: IGameEndedProps) => {
     const [goodWon, setGoodWon] = useState<boolean>()
     const [winnerNames, setWinnerNames] = useState<string>()
 
@@ -31,6 +36,11 @@ const GameEnded = ({game}: IGameProp) => {
             : 
                 <h3>Evil won by assassinating Merlin!</h3>
             }
+            <Button
+                onClick={resetGame}
+            >
+                Play Again
+            </Button>
         </div>
     )
 }

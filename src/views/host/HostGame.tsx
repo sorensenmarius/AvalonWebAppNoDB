@@ -11,6 +11,11 @@ const HostGame = () => {
     const [game, setGame] = useState<Game>();
     const [socket, setSocket] = useState<HubConnection>();
 
+    const resetGame = () => {
+        setGame(undefined)
+        setSocket(undefined)
+    }
+
     if (!game || game.status === GameStatus.WaitingForPlayers)
         return <CreateGame game={game} setGame={setGame} socket={socket} setSocket={setSocket} />
 
@@ -21,7 +26,7 @@ const HostGame = () => {
         return <AssassinTurnHost game={game} />
 
     if (game.status === GameStatus.Ended)
-        return <GameEnded game={game} />
+        return <GameEnded game={game} resetGame={resetGame}/>
 
     return (
         <h1>Not yet implemented</h1>
