@@ -4,23 +4,21 @@
     grid-template-columns: repeat(3,1fr);
 }
 
-.good,
-.neutral,
-.evil{
+.role-box {
     background-color: rgba(91, 92, 91, 0.4);
     border-radius: 1%;
     border: solid 3px transparent;
     padding: 0.4rem;
 }
-.neutral:hover{
+.role-box.neutral:hover{
     border: solid 3px rgb(242, 255, 66);
     filter: brightness(150%);
 }
-.good:hover{
+.role-box.good:hover{
     border: solid 3px rgb(66, 255, 75);
     filter: brightness(150%);
 }
-.evil:hover{
+.role-box.evil:hover{
     border: solid 3px rgb(255, 66, 66);
     filter: brightness(150%);
 }

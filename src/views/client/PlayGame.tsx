@@ -25,6 +25,12 @@ const PlayGame = () => {
         }
     }, [me, game?.players])
 
+    const resetGame = () => {
+        setMe(undefined)
+        setGame(undefined)
+        setSocket(undefined)
+    }
+
     if (!game || !me || !socket)
         return <JoinGame 
             setGame={setGame} 
@@ -42,7 +48,7 @@ const PlayGame = () => {
         return <AssassinTurn game={game} me={me} socket={socket}/>
     
     if (game.status === GameStatus.Ended)
-        return <GameEnded game={game} />
+        return <GameEnded game={game} resetGame={resetGame}/>
     
     return <></>
 }

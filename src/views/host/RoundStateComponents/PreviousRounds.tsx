@@ -1,11 +1,8 @@
-import React from 'react';
-import Game from "../../../models/Game";
 import IGameProp from "../../../models/IGameProp";
 import "./SelectingTeamHost.css"
 
 
 const PreviousRounds = ({ game }: IGameProp) => {
-    const [votes, setVotes] = React.useState<boolean[]>([])
 
 
     return (
@@ -34,6 +31,7 @@ const PreviousRounds = ({ game }: IGameProp) => {
                         </div>
                     )
                 }
+                return null
             })}
         </div>
     )

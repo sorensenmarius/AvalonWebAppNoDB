@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../../../components/Button/Button";
 import IBasicProps from "../../../../models/IBasicProps";
 import Player from "../../../../models/Player";
@@ -7,9 +7,17 @@ import SelectPlayers from "../../Helpers/SelectPlayers";
 
 const SelectingTeam = ({game, me, socket}: IBasicProps) => {
     const [selected, setSelected] = useState<Player[]>([])
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(false)
+    }, [])
 
     const submitTeam = () => {
-        socket.invoke(GameHubMethods.SubmitSelectedTeam, game.id)
+        if(!loading)
+            socket.invoke(GameHubMethods.SubmitSelectedTeam, game.id)
+        
+        setLoading(true)
     }
 
     const updateSelected = (newSelected: Player[]) => {
@@ -41,7 +49,7 @@ const SelectingTeam = ({game, me, socket}: IBasicProps) => {
     }
 
     return(
-        <h1>Waiting for {game.currentPlayer.name} to choose a team</h1>
+        <h1 style={{marginTop: '20vh'}}>Waiting for {game.currentPlayer.name} to choose a team</h1>
     )
 }
 
