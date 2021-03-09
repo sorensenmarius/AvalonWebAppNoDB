@@ -17,7 +17,7 @@ const GameEnded = ({game, resetGame}: IGameEndedProps) => {
 
         const goodTeam = game.players.filter(p => !p.isEvil)
         const evilTeam = game.players.filter(p => p.isEvil)
-        const winnerTeam = tmpGoodWon ? evilTeam : goodTeam
+        const winnerTeam = tmpGoodWon ? goodTeam : evilTeam
 
         setGoodWon(tmpGoodWon)
         setWinnerNames(winnerTeam.map(p => p.name).join(', '))
