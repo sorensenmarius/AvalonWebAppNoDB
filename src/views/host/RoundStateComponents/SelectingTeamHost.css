@@ -8,46 +8,24 @@
     margin-top: 0%;
 }
 .GridContainer{
-    display: grid;
-    width: 90%;
-    height: 90%;
-    margin-top: 3vh;
-    grid-row-gap: 3vh;
-    grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(3, 15vh);
-    align-items: center;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 .PlayerCard{
     position: relative;
-    display: flex;
-    justify-content: center;
-    animation: fadeIn ease 3s;
-    -webkit-animation: fadeIn ease 3s;
-    -moz-animation:fadeIn ease 3s;
-    -o-animation: fadeIn ease 3s;
-    -ms-animation:fadeIn ease 3s;
-}
-.centeredPlayerName {
-    position: absolute;
-    color: white;
-    bottom: -5%;
+    width: 33.3%;
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation:fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation:fadeIn ease 2s;
 }
 .centeredPlayerNameChosen{
     position: absolute;
-    bottom: -3%;
+    bottom: 7%;
     color: black;
-    
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 23px;
 }
-.fade-in {
-    animation: fadeIn ease 20s;
-    -webkit-animation: fadeIn ease 20s;
-    -moz-animation: fadeIn ease 20s;
-    -o-animation: fadeIn ease 20s;
-    -ms-animation: fadeIn ease 20s;
-    }
-    @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
-    }
     

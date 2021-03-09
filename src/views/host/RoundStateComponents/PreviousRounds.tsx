@@ -1,22 +1,23 @@
 import IGameProp from "../../../models/IGameProp";
 import "./SelectingTeamHost.css"
 
+import './PreviousRounds.css'
 
 const PreviousRounds = ({ game }: IGameProp) => {
 
 
     return (
-        <div className="PreviousRounds">
+        <div className="previous-rounds">
             <img src="/images/PR.png" alt="" width="70%" />
-            {game.rounds.map((round) => {
+            {game.rounds.reverse().map((round) => {
                 let tempVotes = new Array(round.votesForExpedition).fill(true)
                 tempVotes.push(new Array(round.votesAgainstExpedition).fill(false))
                 if (round.id !== game.currentRound.id) {
                     return (
-                        <div className={round.votesAgainstExpedition >= 1 ? "PreviousRoundCards Failure" : "PreviousRoundCards Success"}>
-                            <div className="Leader">
-                                <h1><span className='VotesFor'>{round.votesForExpedition}</span> - <span className='VotesAgainst'>{round.votesAgainstExpedition}</span></h1>
-                                <div className="SiluettHolder">
+                        <div className={round.votesAgainstExpedition >= 1 ? "previous-round-cards failure" : "previous-round-cards success"}>
+                            <div className="header">
+                                <h1 className='previous-round-score'><span className='votes-for'>{round.votesForExpedition}</span> - <span className='votes-against'>{round.votesAgainstExpedition}</span></h1>
+                                <div className="silhouette-holder">
                                     {tempVotes.map((vote) => {
                                         if (vote === true)
                                             return <img src="/images/gooduser.png" alt='Good User'/>
@@ -25,7 +26,10 @@ const PreviousRounds = ({ game }: IGameProp) => {
                                     })}
                                 </div>
                             </div>
-                            <div>
+                            <div className='previous-round-names-holder'>
+                                {round.currentTeam.map(p => (
+                                    <div className='previous-round-names'>{p.name}</div>
+                                ))}
                             </div>
                         </div>
                     )
