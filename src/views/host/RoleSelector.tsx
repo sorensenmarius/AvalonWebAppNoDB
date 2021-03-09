@@ -37,8 +37,6 @@ const RoleSelector = ({ roles, setRoles }: IRoleSelectorProps) => {
             setRoles(roles.filter(r => r !== role))
 
         } else {
-            console.log(role)
-
             setRoles([...roles, role])
             if (correctRole) {
                 SetBalance(balance + correctRole?.value)
