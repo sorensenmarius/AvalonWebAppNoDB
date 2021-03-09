@@ -17,6 +17,8 @@ interface ICreateGame {
 
 const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
     const [roles, setRoles] = useState<number[]>([])
+    const [errorMessage, setErrorMessage] = useState('')
+
     useEffect(() => {
         if (!game || !socket)
             createGame()
@@ -34,7 +36,20 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
         setGame(newGame)
     }
 
+    const howManyEvils = [2, 2, 3, 3, 3, 4]
     const startGame = () => {
+        if (!game)
+            return
+
+        const numEvils = howManyEvils[game.players.length - 5]
+
+        const numEvilRolesChosen = roles.filter(r => r > 3).length
+
+        if(numEvilRolesChosen > numEvils) {
+            setErrorMessage(`You can only choose ${numEvils} evil roles with ${game.players.length} players.`)
+            return
+        }
+
         socket?.invoke(GameHubMethods.StartGame, game?.id, roles)
     }
 
@@ -65,7 +80,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                                 </div>
                             ))}
                         </div>
-
+                        <h3 style={{color: 'red'}}>{errorMessage}</h3>
                         <Button
                             onClick={startGame}
                             disabled={!game?.players || game.players.length < 5}

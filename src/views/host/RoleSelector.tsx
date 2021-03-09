@@ -28,7 +28,7 @@ const RoleSelector = ({ roles, setRoles }: IRoleSelectorProps) => {
 
     const selectRole = (role: number) => {
         const correctRole = availableRoles.find(obj => {
-            return obj.id == role
+            return obj.id === role
         })
         if (roles.includes(role)) {
             if (correctRole) {
@@ -41,7 +41,6 @@ const RoleSelector = ({ roles, setRoles }: IRoleSelectorProps) => {
             if (correctRole) {
                 SetBalance(balance + correctRole?.value)
             }
-
         }
     }
     const handleHover = (roleInfo: string) => {
