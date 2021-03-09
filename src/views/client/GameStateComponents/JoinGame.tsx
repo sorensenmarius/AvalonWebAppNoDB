@@ -1,5 +1,4 @@
 import { HubConnection } from "@microsoft/signalr";
-import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
 import Game from "../../../models/Game";
