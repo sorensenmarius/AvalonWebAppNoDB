@@ -1,4 +1,5 @@
 import { HubConnection } from "@microsoft/signalr";
+import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
 import Game from "../../../models/Game";
@@ -19,22 +20,27 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
     const [joinCode, setJoinCode] = useState<number>(-1);
     const [playerName, setPlayerName] = useState<string>('');
     const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         setLoading(false)
+        setErrorMessage('')
     }, [])
 
     const joinGame = async () => {
         if(!loading) {
-            const { game, me }: { game: Game, me: Player } = await GameService.joinGame(joinCode, playerName);
-    
-            setGame(game);
-            setMe(me);
-    
-            setupSocket(setGame).then(newSocket => {
-                setSocket(newSocket)
-                newSocket.invoke(GameHubMethods.JoinGame, game.id);
-            })
+            try {
+                const { game, me }: { game: Game, me: Player } = await GameService.joinGame(joinCode, playerName);
+                setGame(game);
+                setMe(me);
+                
+                setupSocket(setGame).then(newSocket => {
+                    setSocket(newSocket)
+                    newSocket.invoke(GameHubMethods.JoinGame, game.id);
+                })
+            } catch (error) {
+                setErrorMessage(error.response.data)
+            }    
         }
 
         setLoading(true)
@@ -47,6 +53,7 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                 alt="Avalon"
                 className='large-logo center'
             />
+            <h3 style={{color: 'red'}}>{errorMessage}</h3>
             <input
                 type="number"
                 placeholder="Join Code"
