@@ -40,14 +40,13 @@
     position: relative;
     padding: 2rem;
     z-index: 9;
-    height: 80%;
+    height: calc(100% - 64px);
 }
 .LeftSide{
     color: rgb(255, 255, 255);
     flex-direction: column;
     text-align: center;
     width: 55%;
-    max-height: 50rem;
 }
 .RightSide{
     display: flex;
@@ -57,10 +56,11 @@
     width: 40%;
     flex: 1;
     align-items: center;
+    height: 100%;
 }
 .JoinCode{
     margin-top: 2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     text-align: center;
     width: 12rem;
     height: 5rem;
@@ -80,16 +80,8 @@
     row-gap: 1rem;
     flex-direction: column;
     align-items: center;
-}
-
-.player-holder.small {
-    grid-template-columns: repeat(2, 10rem);
-    grid-template-rows: repeat(5, 4rem);
-}
-
-.player-holder.big {
-    grid-template-columns: repeat(3, 10rem);
-    grid-template-rows: repeat(6, 4rem);
+    grid-template-columns: repeat(2, 14rem);
+    grid-template-rows: repeat(5, 6rem);
 }
 
 .PlayerCard{
@@ -102,4 +94,16 @@
 .PlayerImage{
     margin-right: 1rem;
     border-radius: 50%;
+}
+
+.create-game-start-button {
+    position: absolute;
+    bottom: 5%;
+}
+
+.create-game-player-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 6rem;
+    margin: 0;
 }

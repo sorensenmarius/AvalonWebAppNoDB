@@ -1,5 +1,6 @@
 import { HubConnection } from "@microsoft/signalr";
 import React, { useEffect, useState } from "react";
+import AvatarComponent from "avataaars";
 import Button from "../../components/Button/Button";
 import Game from "../../models/Game";
 import Player from "../../models/Player";
@@ -76,17 +77,22 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                             :
                             <h1>Could not create game</h1>
                         }
-                        <div className={`player-holder ${game?.players && game.players.length > 10 ? 'big' : 'small'}`}>
+                        <div className={'player-holder'}>
                             {game?.players.map((p: Player) => (
                                 <div className="PlayerCard" key={p.id + '-joined'}>
-                                    {game.players.length < 10 && (
-                                        <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
-                                    )}
-                                    <p>{p.name}</p>
+                                    <AvatarComponent
+                                        style={{ width: '6rem', height: '6rem' }}
+                                        avatarStyle='Transparent'
+                                        hairColor='BrownDark'
+                                        clotheColor='PastelBlue'
+                                        {...p.avatar}
+                                    />
+                                    <p className='create-game-player-name'>{p.name}</p>
                                 </div>
                             ))}
                         </div>
                         <Button
+                            className='create-game-start-button'
                             onClick={startGame}
                             disabled={!game?.players || game.players.length < 5}
                         >

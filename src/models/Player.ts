@@ -1,3 +1,4 @@
+import IAvatar from "../views/client/Helpers/Avatars/IAvatar";
 import Role from "./enums/Roles";
 
 interface Player {
@@ -7,6 +8,7 @@ interface Player {
     roleInfo: string,
     roleName: string,
     isEvil: boolean,
+    avatar: IAvatar
 }
 
 export default Player;

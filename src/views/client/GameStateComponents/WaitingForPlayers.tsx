@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import IGameProp from "../../../models/IGameProp";
-import Avatar from 'avataaars'
+import React, { useEffect, useState } from 'react';
 import { Button, Menu, MenuItem } from "@material-ui/core";
 
 import "./WaitingForPlayers.css"
 
 import IAvatar, { randomAvatar } from '../Helpers/Avatars/IAvatar';
 import { accessoriesType, clotheType, eyebrowType, eyeType, facialHairType, mouthType, skinColor, topType } from '../Helpers/Avatars/AvatarItems';
+import IBasicProps from '../../../models/IBasicProps';
+import GameHubMethods from '../../../services/GameHubMethods';
+import AvatarComponent from 'avataaars';
 
-const WaitingForPlayers = ({ game }: IGameProp) => {
+const WaitingForPlayers = ({ game, me, socket }: IBasicProps) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [avatar, setAvatar] = useState<IAvatar>(randomAvatar())
     const [show, setShow] = useState<boolean[]>(new Array(8).fill(false))
@@ -24,16 +25,26 @@ const WaitingForPlayers = ({ game }: IGameProp) => {
         { name: 'skinColor', values: skinColor, displayName: '🎨 Skin'  },
     ]
 
-    const handleClose = () => {
+    useEffect(() => {
+        updateAvatar(avatar)
+    }, [])
+
+    const handleClose = (av?: IAvatar) => {
         setShow(new Array(8).fill(false))
         setAnchorEl(null);
+        if (av)
+            updateAvatar(av)
     };
+
+    const updateAvatar = (av: IAvatar) => {
+        socket.invoke(GameHubMethods.UpdateAvatar, game.id, me.id, av)
+    }
 
     return (
         <div className='home-page-background'>
             <div className="ChangeAvatar">
                 <h1>Create your Avatar</h1>
-                <Avatar
+                <AvatarComponent
                     style={{ width: '200px', height: '200px' }}
                     avatarStyle='Transparent'
                     hairColor='BrownDark'
@@ -60,7 +71,7 @@ const WaitingForPlayers = ({ game }: IGameProp) => {
                             id="fade-menu"
                             keepMounted
                             open={show[i]}
-                            onClose={handleClose}
+                            onClose={() => handleClose()}
                             anchorEl={anchorEl}
                         >
                             {option.values.map((o) => (
@@ -68,7 +79,7 @@ const WaitingForPlayers = ({ game }: IGameProp) => {
                                     let avatarCopy = avatar as any
                                     avatarCopy[option.name] = o 
                                     setAvatar(avatarCopy as IAvatar);
-                                    handleClose();
+                                    handleClose(avatarCopy);
                                 }}>
                                     {o}
                                 </MenuItem>
@@ -76,6 +87,21 @@ const WaitingForPlayers = ({ game }: IGameProp) => {
                         </Menu>
                     </div>
                 ))}
+                <div className="ButtonClass">
+                    <Button
+                        className="ButtonWidth"
+                        color="secondary"
+                        aria-controls="customized-menu"
+                        aria-haspopup="true"
+                        variant="contained"
+                        onClick={() => {
+                            const randAv = randomAvatar()
+                            setAvatar(randAv)
+                            updateAvatar(randAv)
+                        }}>
+                        🎲 Randomize
+                    </Button>
+                </div>
             </div>
         </div >
     )

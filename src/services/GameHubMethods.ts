@@ -8,7 +8,8 @@ enum GameHubMethods {
     SubmitExpeditionVote = "SubmitExpeditionVote",
     SubmitTeamVote = "SubmitTeamVote",
     SkipRevealTeamVotes = "SkipRevealTeamVotes",
-    SkipExpeditionVotes = "SkipExpeditionVotes"
+    SkipExpeditionVotes = "SkipExpeditionVotes",
+    UpdateAvatar = "UpdateAvatar"
 }
 
 export default GameHubMethods;
