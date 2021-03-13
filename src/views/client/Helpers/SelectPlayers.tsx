@@ -26,6 +26,7 @@ const SelectPlayers = ({num, players, selected, setSelected, red} : ISelectPlaye
             <div className={`select-players-list ${players.length > 6 ? 'big' : ''}`}>
                 {players.map((p: Player) => (
                     <div 
+                        key={p.id + '-select-players'}
                         className={`select-players-item 
                                         ${isSelected(p) ? 'selected' : ''}
                                         ${red ? 'red' : ''}`}
