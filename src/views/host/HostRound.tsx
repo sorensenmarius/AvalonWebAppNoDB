@@ -6,7 +6,7 @@ import RevealTeamVotesHost from "./RoundStateComponents/RevealTeamVotesHost";
 import SelectingTeamHost from "./RoundStateComponents/SelectingTeamHost";
 import VotingForExpeditionHost from "./RoundStateComponents/VotingForExpeditionHost";
 import VotingForTeamHost from "./RoundStateComponents/VotingForTeamHost";
-import "./HostRoundCss.css"
+import "./HostRound.css"
 import HeaderTile from "./RoundStateComponents/HeaderTile";
 import PreviousRounds from "./RoundStateComponents/PreviousRounds";
 

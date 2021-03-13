@@ -10,14 +10,10 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-/*     background: url("https://cdn.wallpapersafari.com/18/63/Bi4o9Z.jpg");
- */ 
-    background: url("https://preview.redd.it/fonncbo0hfk61.jpg?width=1920&format=pjpg&auto=webp&s=ddfd0f7e68086439ba457c40026ee52bab99de42");   
+    background: url("/src/assets/images/host-background.jpg");   
     background-size: cover;
     background-repeat: no-repeat;
-    transform: scaleX(-1);
-
-    
+    transform: scaleX(-1);   
 }
 .ScoreAndMainComp{
     display: flex;
