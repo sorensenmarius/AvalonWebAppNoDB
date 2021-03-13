@@ -4,10 +4,8 @@ import SelectingTeam from "./RoundStateComponents/SelectingTeam";
 import RevealVotes from "./RoundStateComponents/RevealVotes";
 import Vote from "./RoundStateComponents/Vote";
 import GameHubMethods from "../../../services/GameHubMethods";
-
-import './PlayRound.css'
 import React from "react";
-import RoleModal from "./RoleModal";
+import RoleModal from "../Helpers/RoleModal";
 
 const PlayRound = ({game, me, socket} : IBasicProps) => {
     const currentRoundStatus = game.currentRound.status;

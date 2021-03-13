@@ -8,6 +8,8 @@ import { setupSocket } from "../../services/GameHubUtils";
 import GameService from "../../services/GameService";
 import RoleSelector from "./RoleSelector";
 import "./CreateGame.css"
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 interface ICreateGame {
     game?: Game
     socket?: HubConnection
@@ -17,6 +19,7 @@ interface ICreateGame {
 
 const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
     const [roles, setRoles] = useState<number[]>([])
+    const [showError, setShowError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
     useEffect(() => {
@@ -36,25 +39,28 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
         setGame(newGame)
     }
 
-    const howManyEvils = [2, 2, 3, 3, 3, 4]
     const startGame = () => {
         if (!game)
             return
 
-        const numEvils = howManyEvils[game.players.length - 5]
-
-        const numEvilRolesChosen = roles.filter(r => r > 3).length
-
-        if(numEvilRolesChosen > numEvils) {
-            setErrorMessage(`You can only choose ${numEvils} evil roles with ${game.players.length} players.`)
-            return
-        }
-
-        socket?.invoke(GameHubMethods.StartGame, game?.id, roles)
+        socket?.invoke(GameHubMethods.StartGame, game?.id, roles).then(message => {
+            setErrorMessage(message)
+            setShowError(message !== '')
+        })
     }
 
     return (
         <>
+            <Snackbar 
+                open={showError} 
+                autoHideDuration={4000} 
+                anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+                onClose={() => setShowError(false)}
+            >
+                <Alert severity='error'>
+                    {errorMessage}
+                </Alert>
+            </Snackbar>
             <div className="GreyScaleBackground"></div>
             <div className="BlurCard">
                 <div className="BlurCardBackground"></div>
@@ -80,7 +86,6 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                                 </div>
                             ))}
                         </div>
-                        <h3 style={{color: 'red'}}>{errorMessage}</h3>
                         <Button
                             onClick={startGame}
                             disabled={!game?.players || game.players.length < 5}
