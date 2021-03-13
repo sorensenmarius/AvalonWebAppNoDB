@@ -1,23 +1,23 @@
 import './Button.css'
 
 interface IButtonProps {
-    onClick: () => void
+    onClick: (event?: React.MouseEvent<HTMLElement>) => void
     disabled?: boolean
     children?: React.ReactNode
     className?: string
     red?: boolean
 }
 
-const Button = ({onClick, disabled = false, children, className, red}: IButtonProps) => {
+const Button = ({ onClick, disabled = false, children, className, red }: IButtonProps) => {
 
-    const clickButton = () => {
+    const clickButton = (event: React.MouseEvent<HTMLElement>) => {
         if (!disabled)
-            onClick()
+            onClick(event)
     }
 
-    return(
-        <div 
-            className={ `fantasy-button 
+    return (
+        <div
+            className={`fantasy-button 
                             ${className ?? ''} 
                             ${disabled ? 'disabled' : ''}
                             ${red ? 'red' : ''}
