@@ -18,7 +18,7 @@ const WaitingForPlayers = ({ game }: IGameProp) => {
         { name: 'accessoriesType', values: accessoriesType, displayName: '👓 Accessories'  },
         { name: 'facialHairType', values: facialHairType, displayName: 'Facial hair'  },
         { name: 'clotheType', values: clotheType, displayName: '👔 Clothes'  },
-        { name: 'eyeType', values: eyeType, displayName: '👁 Eyes'  },
+        { name: 'eyeType', values: eyeType, displayName: '👀 Eyes'  },
         { name: 'eyebrowType', values: eyebrowType, displayName: '✏️ Eyebrow'  },
         { name: 'mouthType', values: mouthType, displayName: '👄 Mouth'  },
         { name: 'skinColor', values: skinColor, displayName: '🎨 Skin'  },
