@@ -4,6 +4,12 @@ import SelectingTeam from "./RoundStateComponents/SelectingTeam";
 import RevealVotes from "./RoundStateComponents/RevealVotes";
 import Vote from "./RoundStateComponents/Vote";
 import GameHubMethods from "../../../services/GameHubMethods";
+import { Fab } from "@material-ui/core";
+import { Person } from "@material-ui/icons";
+
+import './PlayRound.css'
+import React from "react";
+import RoleModal from "./RoleModal";
 
 const PlayRound = ({game, me, socket} : IBasicProps) => {
     const currentRoundStatus = game.currentRound.status;
@@ -29,6 +35,7 @@ const PlayRound = ({game, me, socket} : IBasicProps) => {
     return(
         <div className='client-background'>
             {currentRoundComponent}
+            <RoleModal me={me} />
         </div>
     )
 }
