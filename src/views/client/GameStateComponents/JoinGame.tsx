@@ -87,7 +87,7 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                 <Alert severity='error'>
                     {errorMessage}
                 </Alert>
-            </Snackbar>;
+            </Snackbar>
         </div>
     )
 }
