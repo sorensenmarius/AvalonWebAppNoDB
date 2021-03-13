@@ -12,7 +12,7 @@ const SelectingTeamHost = ({ game }: ISelectingTeamHost) => {
             <h3 className="NmrPlayers">{game.currentRound.requiredPlayers} players</h3>
             <div className="GridContainer">
                 {game.currentRound.currentTeam.map(p => (
-                    <div className="PlayerCard" key={p.id}>
+                    <div className="host-choose-player-silhouette" key={p.id}>
                         <img src="/images/playersilChosen.png" alt="" width="92%" />
                         <div className="centeredPlayerNameChosen"><h5>{p.name}</h5></div>
                     </div>

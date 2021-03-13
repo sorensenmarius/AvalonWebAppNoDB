@@ -72,7 +72,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                         }
                         <div className={`player-holder ${game?.players && game.players.length > 10 ? 'big' : 'small'}`}>
                             {game?.players.map((p: Player) => (
-                                <div className="PlayerCard">
+                                <div className="PlayerCard" key={p.id + '-joined'}>
                                     {game.players.length < 10 && (
                                         <img src="https://i.pravatar.cc/50" alt="" className="PlayerImage" />
                                     )}

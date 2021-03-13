@@ -14,7 +14,7 @@ const HeaderTile = ({ game }: IGameProp) => {
                 <img src="/images/CRB.png" alt="" width="60%" />
                 <div className="PlayerOrder">
                     {game.players.map((player) => (
-                        <p>{player.name} &emsp;</p>
+                        <p key={player.id + '-next-player'}>{player.name} &emsp;</p>
                     ))}
                 </div>
             </div>

@@ -13,7 +13,8 @@
     width: 100%;
     justify-content: center;
 }
-.PlayerCard{
+
+.host-choose-player-silhouette{
     position: relative;
     width: 33.3%;
     animation: fadeIn ease 2s;
