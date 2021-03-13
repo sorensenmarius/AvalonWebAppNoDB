@@ -4,8 +4,6 @@ import SelectingTeam from "./RoundStateComponents/SelectingTeam";
 import RevealVotes from "./RoundStateComponents/RevealVotes";
 import Vote from "./RoundStateComponents/Vote";
 import GameHubMethods from "../../../services/GameHubMethods";
-import { Fab } from "@material-ui/core";
-import { Person } from "@material-ui/icons";
 
 import './PlayRound.css'
 import React from "react";
