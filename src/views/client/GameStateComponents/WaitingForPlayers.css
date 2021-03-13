@@ -1,3 +1,18 @@
 .waiting-for-players-text {
     padding-top: 40vh;
 }
+.ChangeAvatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ButtonClass{
+    justify-content: center;
+    width: 60vw;
+    margin-top: 1rem;
+    display: flex;
+    flex: 1;
+}
+.ButtonWidth{
+    width: 100%;
+}
