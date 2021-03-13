@@ -1,3 +1,5 @@
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { HubConnection } from "@microsoft/signalr";
 import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
@@ -20,15 +22,20 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
     const [playerName, setPlayerName] = useState<string>('');
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [showErrorMessage, setShowErrorMessage] = useState(false)
 
     useEffect(() => {
         setLoading(false)
         setErrorMessage('')
+        setShowErrorMessage(false)
     }, [])
 
     const joinGame = async () => {
+        setShowErrorMessage(false)
         if(!loading) {
             try {
+                setLoading(true)
+                setErrorMessage('')
                 const { game, me }: { game: Game, me: Player } = await GameService.joinGame(joinCode, playerName);
                 setGame(game);
                 setMe(me);
@@ -37,12 +44,13 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                     setSocket(newSocket)
                     newSocket.invoke(GameHubMethods.JoinGame, game.id);
                 })
+                setLoading(false)
             } catch (error) {
-                setErrorMessage(error.response.data)
+                setShowErrorMessage(true)
+                setErrorMessage(error.response.data.detail)
+                setLoading(false)
             }    
         }
-
-        setLoading(true)
     }
 
     return (
@@ -52,7 +60,6 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                 alt="Avalon"
                 className='large-logo center'
             />
-            <h3 style={{color: 'red'}}>{errorMessage}</h3>
             <input
                 type="number"
                 placeholder="Join Code"
@@ -71,6 +78,16 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                 disabled={!joinCode || !playerName}
                 onClick={joinGame}
             >Join</Button>
+            <Snackbar 
+                open={showErrorMessage} 
+                autoHideDuration={4000} 
+                anchorOrigin={{vertical: 'top', horizontal: 'center'}}
+                onClose={() => setShowErrorMessage(false)}
+            >
+                <Alert severity='error'>
+                    {errorMessage}
+                </Alert>
+            </Snackbar>;
         </div>
     )
 }
