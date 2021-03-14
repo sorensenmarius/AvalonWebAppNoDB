@@ -33,7 +33,7 @@ const WaitingForPlayers = ({ game, me, socket }: IBasicProps) => {
         setShow(new Array(8).fill(false))
         setAnchorEl(null);
         if (av)
-            updateAvatar(av)
+            updateAvatar(av) 
     };
 
     const updateAvatar = (av: IAvatar) => {
