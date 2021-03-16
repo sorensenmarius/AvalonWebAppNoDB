@@ -24,3 +24,9 @@ export const randomAvatar = (): IAvatar => {
         eyebrowType: randArrayValue(eyebrowType),
     }
 }
+
+export const AvatarDefaultSettings = {
+    avatarStyle: 'Transparent',
+    hairColor: 'BrownDark',
+    clotheColor: 'PastelBlue'
+}

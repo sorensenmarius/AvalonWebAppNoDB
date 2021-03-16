@@ -11,6 +11,7 @@ import RoleSelector from "./RoleSelector";
 import "./CreateGame.css"
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import { AvatarDefaultSettings } from "../client/Helpers/Avatars/IAvatar";
 interface ICreateGame {
     game?: Game
     socket?: HubConnection
@@ -82,9 +83,7 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
                                 <div className="PlayerCard" key={p.id + '-joined'}>
                                     <AvatarComponent
                                         style={{ width: '6rem', height: '6rem' }}
-                                        avatarStyle='Transparent'
-                                        hairColor='BrownDark'
-                                        clotheColor='PastelBlue'
+                                        {...AvatarDefaultSettings}
                                         {...p.avatar}
                                     />
                                     <p className='create-game-player-name'>{p.name}</p>

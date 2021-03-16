@@ -3,7 +3,7 @@ import { Button, Menu, MenuItem } from "@material-ui/core";
 
 import "./WaitingForPlayers.css"
 
-import IAvatar, { randomAvatar } from '../Helpers/Avatars/IAvatar';
+import IAvatar, { AvatarDefaultSettings, randomAvatar } from '../Helpers/Avatars/IAvatar';
 import { accessoriesType, clotheType, eyebrowType, eyeType, facialHairType, mouthType, skinColor, topType } from '../Helpers/Avatars/AvatarItems';
 import IBasicProps from '../../../models/IBasicProps';
 import GameHubMethods from '../../../services/GameHubMethods';
@@ -46,9 +46,7 @@ const WaitingForPlayers = ({ game, me, socket }: IBasicProps) => {
                 <h1>Create your Avatar</h1>
                 <AvatarComponent
                     style={{ width: '200px', height: '200px' }}
-                    avatarStyle='Transparent'
-                    hairColor='BrownDark'
-                    clotheColor='PastelBlue'
+                    {...AvatarDefaultSettings}
                     {...avatar}
                 />
                 {options.map((option: {name: string, values: string[], displayName: string}, i: number) => (
