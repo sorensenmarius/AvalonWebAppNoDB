@@ -5,7 +5,7 @@ import Round from "./Round";
 interface Game {
     id: string,
     joinCode: number,
-    counter: number,
+    playerIndex: number,
     pointsInnocent: number,
     pointsEvil: number,
     currentPlayer: Player,

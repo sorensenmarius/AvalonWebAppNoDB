@@ -14,6 +14,10 @@
     justify-content: center;
 }
 
+.selecting-team-header-text {
+    margin: 0;
+}
+
 .host-choose-player-silhouette{
     position: relative;
     width: 33.3%;
@@ -34,7 +38,6 @@
 .centeredPlayerNameChosen h5 {
     margin: 0;
     font-size: 25px;
-    color: white;
 }
 
 @keyframes fadeIn {

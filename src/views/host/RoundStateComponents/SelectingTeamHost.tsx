@@ -10,8 +10,8 @@ interface ISelectingTeamHost {
 const SelectingTeamHost = ({ game }: ISelectingTeamHost) => {
     return (
         <div className="SelectingTeamMain">
-            <h2>{game.currentPlayer.name} is choosing a Team</h2>
-            <h3 className="NmrPlayers">{game.currentRound.requiredPlayers} players</h3>
+            <h1 className='selecting-team-header-text'>{game.currentPlayer.name} is choosing a Team</h1>
+            <h2 className="NmrPlayers">{game.currentRound.requiredPlayers} players</h2>
             <div className="GridContainer">
                 {game.currentRound.currentTeam.map(p => (
                     <div className="host-choose-player-silhouette" key={p.id}>
