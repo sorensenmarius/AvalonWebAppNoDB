@@ -1,0 +1,16 @@
+.assassin-host-background {
+    margin: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url('/src/assets/images/assassin-background.jpg') center no-repeat;
+    z-index: -1;
+}
+
+.assassin-host-container {
+    padding-top: 5%;
+}
+
+.assassin-host-text {
+    color: white;
+}
