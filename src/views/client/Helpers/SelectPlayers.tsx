@@ -7,11 +7,16 @@ interface ISelectPlayersProps {
     players: Player[],
     selected: Player[],
     setSelected: (players: Player[]) => void
-    red?: boolean
+    assassin?: boolean
 }
 
-const SelectPlayers = ({num, players, selected, setSelected, red} : ISelectPlayersProps) => {
+const SelectPlayers = ({num, players, selected, setSelected, assassin} : ISelectPlayersProps) => {
     const updateSelected = (player: Player) => {
+        if (assassin) {
+            setSelected([player])
+            return
+        }
+
         if (selected.some(p => p.id === player.id)) {
             setSelected(selected.filter(p => p.id !== player.id))
         } else if (selected.length !== num) {
@@ -29,7 +34,7 @@ const SelectPlayers = ({num, players, selected, setSelected, red} : ISelectPlaye
                         key={p.id + '-select-players'}
                         className={`select-players-item 
                                         ${isSelected(p) ? 'selected' : ''}
-                                        ${red ? 'red' : ''}`}
+                                        ${assassin ? 'red' : ''}`}
                         onClick={() => updateSelected(p)}
                     >
                         <p>{p.name}</p>

@@ -23,16 +23,17 @@ const AssassinTurn = ({game, me, socket} : IBasicProps) => {
         setLoading(true)
     }
 
-    if (me.roleId === Role.Assassin) {
-        return (
-            <div className='assassin-background'>
+    return (
+        <div className='assassin-background'>
+            {me.roleId === Role.Assassin ?
+            <> 
                 <h1>Assassinate Merlin</h1>
                 <SelectPlayers 
                     num={1}
                     players={game.players}
                     selected={selected}
                     setSelected={setSelected}
-                    red
+                    assassin
                 />
                 <Button
                     disabled={selected.length === 0}
@@ -41,11 +42,11 @@ const AssassinTurn = ({game, me, socket} : IBasicProps) => {
                 >
                     Assassinate {selected.length > 0 ? selected[0].name : ''}
                 </Button>
-            </div>
-        )
-    }
-    return (
-        <h1>Waiting for assassin</h1>
+            </>
+            :
+            <h1>Waiting for Assassin</h1>
+            }
+        </div>
     )
 }
 
