@@ -1,4 +1,6 @@
+import AvatarComponent from "avataaars";
 import Game from "../../../models/Game";
+import { AvatarDefaultSettings } from "../../client/Helpers/Avatars/IAvatar";
 import "./SelectingTeamHost.css"
 
 interface ISelectingTeamHost {
@@ -13,7 +15,11 @@ const SelectingTeamHost = ({ game }: ISelectingTeamHost) => {
             <div className="GridContainer">
                 {game.currentRound.currentTeam.map(p => (
                     <div className="host-choose-player-silhouette" key={p.id}>
-                        <img src="/images/playersilChosen.png" alt="" width="92%" />
+                        <AvatarComponent
+                            style={{height: '90%'}}
+                            {...AvatarDefaultSettings}
+                            {...p.avatar}
+                        />
                         <div className="centeredPlayerNameChosen"><h5>{p.name}</h5></div>
                     </div>
                 ))}

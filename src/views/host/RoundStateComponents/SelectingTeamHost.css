@@ -26,11 +26,15 @@
 
 .centeredPlayerNameChosen{
     position: absolute;
-    bottom: 7%;
-    color: black;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 22px;
+}
+
+.centeredPlayerNameChosen h5 {
+    margin: 0;
+    font-size: 25px;
+    color: white;
 }
 
 @keyframes fadeIn {
