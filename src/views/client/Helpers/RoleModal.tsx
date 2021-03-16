@@ -1,7 +1,9 @@
-import { Button, Dialog, DialogActions, DialogContentText, DialogTitle, Fab } from "@material-ui/core";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Fab } from "@material-ui/core";
 import { Person } from "@material-ui/icons";
+import AvatarComponent from "avataaars";
 import React, { useState } from "react";
 import Player from "../../../models/Player";
+import { AvatarDefaultSettings } from "./Avatars/IAvatar";
 import './RoleModal.css'
 
 const RoleModal = ({ me }: {me: Player}) => {
@@ -18,12 +20,17 @@ const RoleModal = ({ me }: {me: Player}) => {
                         open={open}
                         onClose={() => setOpen(false)}
                     >
-                        <DialogTitle>{me.roleName}</DialogTitle>
-                        <DialogContentText>
+                        <DialogContent>
+                            <AvatarComponent
+                                style={{width: '80%', height: '200px'}}
+                                {...AvatarDefaultSettings}
+                                {...me.avatar}
+                            />
+                            <h1>{me.roleName}</h1>
                             {me.roleInfo.split('|').map((s: string, i: number) => (
                                 <p key={i + '-modal-text'}>{s}</p>
                             ))}
-                        </DialogContentText>
+                        </DialogContent>
                         <DialogActions>
                             <Button onClick={() => setOpen(false)} >Close</Button>
                         </DialogActions>
