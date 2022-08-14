@@ -1,6 +1,7 @@
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { HubConnection } from "@microsoft/signalr";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
 import Game from "../../../models/Game";
@@ -46,9 +47,11 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
                 })
                 setLoading(false)
             } catch (error) {
-                setShowErrorMessage(true)
-                setErrorMessage(error.response.data.detail)
-                setLoading(false)
+                if (axios.isAxiosError(error)) {
+                    setShowErrorMessage(true)
+                    setErrorMessage(error.response?.data.detail)
+                    setLoading(false)
+                }
             }    
         }
     }
