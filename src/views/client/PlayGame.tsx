@@ -28,7 +28,7 @@ const PlayGame = () => {
 
   useEffect(() => {
     showMessage("Socket state changed to " + socket?.state, "info");
-  }, [socket?.state]);
+  }, [socket?.state, showMessage]);
 
   const resetGame = () => {
     setMe(undefined);
