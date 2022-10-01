@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button, Menu, MenuItem } from "@mui/material";
 
 import "./WaitingForPlayers.css";
 
@@ -20,6 +19,7 @@ import {
 import IBasicProps from "../../../models/IBasicProps";
 import GameHubMethods from "../../../services/GameHubMethods";
 import AvatarComponent from "avataaars";
+import { Button, Menu, MenuItem } from "@mui/material";
 
 const WaitingForPlayers = ({ game, me, socket }: IBasicProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -47,7 +47,7 @@ const WaitingForPlayers = ({ game, me, socket }: IBasicProps) => {
 
   useEffect(() => {
     updateAvatar(avatar);
-  });
+  }, []);
 
   const handleClose = (av?: IAvatar) => {
     setShow(new Array(8).fill(false));

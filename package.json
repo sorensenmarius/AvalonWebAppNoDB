@@ -9,7 +9,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@microsoft/signalr": "^5.0.2",
-    "avataaars": "^1.2.2",
+    "avataaars": "2.0.0",
     "axios": "^0.21.1",
     "less": "^4.1.1",
     "less-loader": "^8.0.0",
