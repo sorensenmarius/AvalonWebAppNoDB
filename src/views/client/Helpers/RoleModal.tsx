@@ -4,8 +4,8 @@ import {
   DialogActions,
   DialogContent,
   Fab,
-} from "@material-ui/core";
-import { Person } from "@material-ui/icons";
+} from "@mui/material";
+import { Person } from "@mui/icons-material";
 import AvatarComponent from "avataaars";
 import React, { useState } from "react";
 import Player from "../../../models/Player";

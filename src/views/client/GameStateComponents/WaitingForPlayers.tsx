@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Menu, MenuItem } from "@material-ui/core";
+import { Button, Menu, MenuItem } from "@mui/material";
 
 import "./WaitingForPlayers.css";
 

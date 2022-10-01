@@ -1,8 +1,6 @@
-import { Snackbar } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
 import { HubConnection } from "@microsoft/signalr";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import Game from "../../../models/Game";
 import Player from "../../../models/Player";
@@ -11,6 +9,7 @@ import { setupSocket } from "../../../services/GameHubUtils";
 import GameService from "../../../services/GameService";
 
 import "./JoinGame.css";
+import useGlobalSnackbar from "../../../hooks/useGlobalSnackbar";
 
 interface IJoinGameProps {
   setGame: (game: Game) => void;
@@ -22,21 +21,12 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
   const [joinCode, setJoinCode] = useState<number>(-1);
   const [playerName, setPlayerName] = useState<string>("");
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
-
-  useEffect(() => {
-    setLoading(false);
-    setErrorMessage("");
-    setShowErrorMessage(false);
-  }, []);
+  const { showErrorMessage } = useGlobalSnackbar();
 
   const joinGame = async () => {
-    setShowErrorMessage(false);
     if (!loading) {
       try {
         setLoading(true);
-        setErrorMessage("");
         const { game, me }: { game: Game; me: Player } =
           await GameService.joinGame(joinCode, playerName);
         setGame(game);
@@ -49,8 +39,7 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
         setLoading(false);
       } catch (error) {
         if (axios.isAxiosError(error)) {
-          setShowErrorMessage(true);
-          setErrorMessage(error.response?.data.detail);
+          showErrorMessage(error.response?.data.detail);
           setLoading(false);
         }
       }
@@ -84,14 +73,6 @@ const JoinGame = ({ setGame, setMe, setSocket }: IJoinGameProps) => {
       >
         Join
       </Button>
-      <Snackbar
-        open={showErrorMessage}
-        autoHideDuration={4000}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        onClose={() => setShowErrorMessage(false)}
-      >
-        <Alert severity="error">{errorMessage}</Alert>
-      </Snackbar>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { HubConnection } from "@microsoft/signalr";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AvatarComponent from "avataaars";
 import Button from "../../components/Button/Button";
 import Game from "../../models/Game";
@@ -9,9 +9,8 @@ import { setupSocket } from "../../services/GameHubUtils";
 import GameService from "../../services/GameService";
 import RoleSelector from "./RoleSelector";
 import "./CreateGame.css";
-import { Snackbar } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
 import { AvatarDefaultSettings } from "../client/Helpers/Avatars/IAvatar";
+import useGlobalSnackbar from "../../hooks/useGlobalSnackbar";
 interface ICreateGame {
   game?: Game;
   socket?: HubConnection;
@@ -21,8 +20,7 @@ interface ICreateGame {
 
 const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
   const [roles, setRoles] = useState<number[]>([]);
-  const [showError, setShowError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const { showErrorMessage } = useGlobalSnackbar();
 
   useEffect(() => {
     if (!game || !socket) createGame();
@@ -45,22 +43,14 @@ const CreateGame = ({ game, socket, setGame, setSocket }: ICreateGame) => {
 
     socket
       ?.invoke(GameHubMethods.StartGame, game?.id, roles)
+      // TODO: Why is this a then and not a catch if it only displays error information either way???
       .then((message) => {
-        setErrorMessage(message);
-        setShowError(message !== "");
+        if (message !== "") showErrorMessage(message);
       });
   };
 
   return (
     <>
-      <Snackbar
-        open={showError}
-        autoHideDuration={4000}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        onClose={() => setShowError(false)}
-      >
-        <Alert severity="error">{errorMessage}</Alert>
-      </Snackbar>
       <div className="GreyScaleBackground"></div>
       <div className="BlurCard">
         <div className="BlurCardBackground"></div>
