@@ -1,6 +1,7 @@
 import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
 import Game from "../models/Game";
 import GameHubListeners from "./GameHubListeners";
+import GameHubMethods from "./GameHubMethods";
 import http from "./HttpService";
 
 export const setupSocket = async (
@@ -9,7 +10,7 @@ export const setupSocket = async (
 ): Promise<HubConnection> => {
   const connection = new HubConnectionBuilder()
     .withUrl(`${process.env.REACT_APP_API_SOURCE}gamehub`)
-    .withAutomaticReconnect([2000, 5000, 10000, 15000, 30000, 60000, 120000])
+    .withAutomaticReconnect()
     .build();
 
   connection.on(GameHubListeners.GameUpdated, (game: Game) => {
@@ -20,6 +21,9 @@ export const setupSocket = async (
     if (game?.id) {
       const response = await http.get<Game>("game/" + game.id);
       setGame(response.data);
+
+      // Rejoin game in case of new connectionId
+      connection.invoke(GameHubMethods.JoinGame, game.id);
     } else {
       // TODO: Review if this is cluttering the console
       console.error(
