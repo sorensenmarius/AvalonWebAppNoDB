@@ -47,6 +47,8 @@ const WaitingForPlayers = ({ game, me, socket }: IBasicProps) => {
 
   useEffect(() => {
     updateAvatar(avatar);
+
+    // eslint-disable-next-line
   }, []);
 
   const handleClose = (av?: IAvatar) => {
