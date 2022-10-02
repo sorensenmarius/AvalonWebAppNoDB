@@ -11,7 +11,9 @@ const HostGame = () => {
   const [game, setGame] = useState<Game>();
   const [socket, setSocket] = useState<HubConnection>();
 
-  const resetGame = () => {
+  const resetGame = async () => {
+    if (socket) socket.stop();
+
     setGame(undefined);
     setSocket(undefined);
   };

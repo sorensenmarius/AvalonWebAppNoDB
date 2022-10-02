@@ -26,6 +26,8 @@ const PlayGame = () => {
   }, [me, game?.players]);
 
   const resetGame = () => {
+    if (socket) socket.stop();
+
     setMe(undefined);
     setGame(undefined);
     setSocket(undefined);
