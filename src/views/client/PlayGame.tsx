@@ -10,14 +10,12 @@ import GameEnded from "./GameStateComponents/GameEnded";
 import Player from "../../models/Player";
 
 import "./PlayGame.css";
-import useGlobalSnackbar from "../../hooks/useGlobalSnackbar";
 import ReloadButton from "./Helpers/ReloadButton";
 
 const PlayGame = () => {
   const [game, setGame] = useState<Game>();
   const [me, setMe] = useState<Player>();
   const [socket, setSocket] = useState<HubConnection>();
-  const { showMessage } = useGlobalSnackbar();
 
   useEffect(() => {
     if (me) {
@@ -26,10 +24,6 @@ const PlayGame = () => {
       if (newMe) setMe(newMe);
     }
   }, [me, game?.players]);
-
-  useEffect(() => {
-    showMessage("" + socket?.state, "info");
-  }, [socket?.state, showMessage]);
 
   const resetGame = () => {
     setMe(undefined);
