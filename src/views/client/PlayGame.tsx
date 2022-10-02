@@ -11,6 +11,7 @@ import Player from "../../models/Player";
 
 import "./PlayGame.css";
 import useGlobalSnackbar from "../../hooks/useGlobalSnackbar";
+import ReloadButton from "./Helpers/ReloadButton";
 
 const PlayGame = () => {
   const [game, setGame] = useState<Game>();
@@ -39,19 +40,26 @@ const PlayGame = () => {
   if (!game || !me || !socket)
     return <JoinGame setGame={setGame} setMe={setMe} setSocket={setSocket} />;
 
-  if (game.status === GameStatus.WaitingForPlayers)
-    return <WaitingForPlayers game={game} me={me} socket={socket} />;
+  const getGameScreen = () => {
+    if (game.status === GameStatus.WaitingForPlayers)
+      return <WaitingForPlayers game={game} me={me} socket={socket} />;
 
-  if (game.status === GameStatus.Playing)
-    return <PlayRound game={game} me={me} socket={socket} />;
+    if (game.status === GameStatus.Playing)
+      return <PlayRound game={game} me={me} socket={socket} />;
 
-  if (game.status === GameStatus.AssassinTurn)
-    return <AssassinTurn game={game} me={me} socket={socket} />;
+    if (game.status === GameStatus.AssassinTurn)
+      return <AssassinTurn game={game} me={me} socket={socket} />;
 
-  if (game.status === GameStatus.Ended)
-    return <GameEnded game={game} resetGame={resetGame} />;
+    if (game.status === GameStatus.Ended)
+      return <GameEnded game={game} resetGame={resetGame} />;
+  };
 
-  return <></>;
+  return (
+    <>
+      {getGameScreen()}
+      <ReloadButton game={game} setGame={setGame} />
+    </>
+  );
 };
 
 export default PlayGame;
