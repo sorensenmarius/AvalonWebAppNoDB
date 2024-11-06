@@ -1,0 +1,18 @@
+﻿services:
+  client:
+    build:
+      context: . # This should be run from the client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_SOURCE=http://localhost:5001
+
+  server:
+    build:
+      context: ../AvalonApiNoDB # Path to backend repo Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
