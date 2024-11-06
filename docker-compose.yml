@@ -5,8 +5,13 @@
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - /app/node_modules
     environment:
       - REACT_APP_API_SOURCE=http://localhost:5001
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
 
   server:
     build:

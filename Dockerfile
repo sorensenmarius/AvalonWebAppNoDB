@@ -1,10 +1,11 @@
-﻿# Dockerfile in the client repo
-FROM node:18-alpine
+﻿FROM node:18-alpine
 
 WORKDIR /app
+
+# Install dependencies
 COPY package*.json ./
 RUN npm install
-COPY . .
 
+# The rest will be mounted as a volume, so no need to copy all files.
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
